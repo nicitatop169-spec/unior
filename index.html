@@ -1,42 +1,45 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СК Юниор | Спортивный Клуб</title>
     <style>
-        /* Черно-синяя стильная тема */
+        /* Новая СВЕТЛАЯ тема (Белый фон) */
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #02040a;
-            color: #ffffff;
+            background: #ffffff;
+            color: #1a202c; /* Темный текст для контраста */
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background 0.3s;
         }
 
         /* Кнопка "Связаться с менеджером" над заголовком */
         .top-bar {
-            background: #070a14;
+            background: #f8fafc;
             padding: 10px 20px;
             display: flex;
             justify-content: flex-end;
-            border-bottom: 1px solid rgba(0, 102, 255, 0.2);
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .manager-btn {
-            background: #0066ff;
+            background: #e11d48; /* Красный цвет */
             color: white;
             border: none;
             padding: 8px 16px;
             border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
         }
 
         .manager-btn:hover {
-            background: #0052cc;
+            background: #be123c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
         }
 
         /* Главный контейнер */
@@ -52,20 +55,34 @@
         }
 
         .site-name {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: bold;
-            color: #8fa0c0;
+            color: #0066ff;
             text-transform: lowercase; /* unior */
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Анимация для названия unior: покачивание при наведении */
+        .site-name:hover {
+            transform: skewX(-10deg) scale(1.1);
+            color: #e11d48;
         }
 
-        /* Большой заголовок с синим фоном */
+        /* КРАСНЫЙ ЗАГОЛОВОК С КРАСНОЙ ОБВОДКОЙ */
         .main-banner {
-            background: linear-gradient(90deg, #0052cc 0%, #002266 100%);
+            background: #e11d48; /* Красный фон */
+            border: 5px solid #be123c; /* Темно-красная толстая обводка */
             padding: 40px 20px;
             border-radius: 12px;
             text-align: center;
             margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(225, 29, 72, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .main-banner:hover {
+            transform: scale(1.02); /* Легкое увеличение баннера */
         }
 
         .main-banner h1 {
@@ -74,16 +91,26 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Стили для блоков с будущими фотографиями */
+        /* Разделы с анимацией текста при наведении */
         .section-title {
             font-size: 24px;
-            color: #0066ff;
-            border-left: 4px solid #0066ff;
+            color: #1a202c;
+            border-left: 4px solid #e11d48;
             padding-left: 15px;
             margin-bottom: 20px;
             text-transform: uppercase;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        /* Эффект для заголовков: сдвиг вправо и смена цвета на красный */
+        .section-title:hover {
+            padding-left: 25px;
+            color: #e11d48;
+            border-left-width: 8px;
         }
 
         .photo-grid {
@@ -95,23 +122,33 @@
 
         /* Заглушки для ваших будущих фото */
         .photo-placeholder {
-            background: #0d1527;
-            border: 2px dashed #0052cc;
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
             border-radius: 8px;
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #536585;
+            color: #64748b;
             font-weight: 500;
             text-align: center;
             padding: 10px;
+            transition: all 0.3s ease; /* Плавность для анимации */
         }
 
-        /* Соцсети и Контакты внизу */
+        /* Анимация карточек: приподнимание, появление тени и красной рамки */
+        .photo-placeholder:hover {
+            transform: translateY(-8px);
+            background: #ffffff;
+            border-color: #e11d48;
+            color: #e11d48;
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Нижная панель (Светлая с серой рамкой) */
         .footer-info {
-            background: #0d1527;
-            border: 1px solid rgba(0, 102, 255, 0.2);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 12px;
             padding: 30px;
             margin-top: 40px;
@@ -120,13 +157,19 @@
         .contact-row {
             margin-bottom: 15px;
             font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        /* Интерактивный текст контактов: укрупняется при наведении */
+        .contact-row:hover {
+            transform: translateX(5px);
         }
 
         .contact-row strong {
-            color: #0066ff;
+            color: #e11d48;
         }
 
-        /* Кнопки соцсетей, которые копируют текст */
+        /* Кнопки соцсетей */
         .social-buttons {
             display: flex;
             gap: 15px;
@@ -136,19 +179,21 @@
         }
 
         .copy-btn {
-            background: #16223f;
-            border: 1px solid #0052cc;
-            color: white;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #1a202c;
             padding: 10px 20px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
         }
 
         .copy-btn:hover {
-            background: #0066ff;
-            border-color: #0066ff;
+            background: #e11d48;
+            border-color: #e11d48;
+            color: white;
+            transform: scale(1.05);
         }
 
         /* Всплывашка об успешном копировании */
@@ -157,31 +202,31 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #00b050;
+            background: #e11d48;
             color: white;
             padding: 12px 24px;
             border-radius: 8px;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(225, 29, 72, 0.3);
             z-index: 1000;
         }
     </style>
 </head>
 <body>
 
-    <!-- Кнопка "Связаться с менеджером" в самом верху -->
+    <!-- Верхняя линия с кнопкой -->
     <div class="top-bar">
         <button class="manager-btn" id="managerBtn">Связаться с менеджером</button>
     </div>
 
     <div class="container">
         
-        <!-- Название сайта unior в левом верхнем углу -->
+        <!-- Название сайта unior (наведи мышку, чтобы увидеть анимацию) -->
         <header>
             <div class="site-name">unior</div>
         </header>
 
-        <!-- Заголовок с синим фоном -->
+        <!-- Красный заголовок с красной рамкой -->
         <div class="main-banner">
             <h1>спортивный клуб юниор</h1>
         </div>
@@ -190,9 +235,9 @@
         <section>
             <h2 class="section-title">Фотографии клуба</h2>
             <div class="photo-grid">
-                <div class="photo-placeholder">Место для фото клуба №1<br>(Замените на своё изображение)</div>
-                <div class="photo-placeholder">Место для фото клуба №2<br>(Замените на своё изображение)</div>
-                <div class="photo-placeholder">Место для фото клуба №3<br>(Замените на своё изображение)</div>
+                <div class="photo-placeholder">Место для фото клуба №1</div>
+                <div class="photo-placeholder">Место для фото клуба №2</div>
+                <div class="photo-placeholder">Место для фото клуба №3</div>
             </div>
         </section>
 
@@ -214,13 +259,12 @@
             <div class="contact-row">
                 <strong>Наши соцсети (нажмите для копирования):</strong>
                 <div class="social-buttons">
-                    <!-- Замените текст в data-copy на ваши реальные ссылки/ники -->
                     <button class="copy-btn" data-copy="https://vk.com">ВКонтакте</button>
                     <button class="copy-btn" data-copy="@unior_telegram">Telegram</button>
                 </div>
             </div>
 
-            <div class="contact-row" style="border-top: 1px solid rgba(0, 102, 255, 0.1); padding-top: 15px;">
+            <div class="contact-row" style="border-top: 1px solid #e2e8f0; padding-top: 15px;">
                 <strong>Адрес клуба:</strong> г. Москва, ул. Спортивная, д. 11, комплекс «Юниор»
             </div>
         </div>
@@ -231,22 +275,19 @@
     <div class="toast" id="toast">Ссылка скопирована в буфер обмена!</div>
 
     <script>
-        // Логика кнопки "Связаться с менеджером"
+        // Логика кнопки менеджера
         document.getElementById('managerBtn').addEventListener('click', () => {
-            alert('Вызов менеджера: Оставьте ваши контакты или наберите телефон горячей линии.');
+            alert('Вызов менеджера: Оставьте ваши контакты.');
         });
 
-        // Логика копирования соцсетей при клике
+        // Логика копирования
         const copyButtons = document.querySelectorAll('.copy-btn');
         const toast = document.getElementById('toast');
 
         copyButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const textToCopy = button.getAttribute('data-copy');
-                
-                // Копируем в буфер обмена
                 navigator.clipboard.writeText(textToCopy).then(() => {
-                    // Показываем красивое уведомление
                     toast.style.display = 'block';
                     setTimeout(() => {
                         toast.style.display = 'none';
@@ -258,3 +299,4 @@
 
 </body>
 </html>
+
