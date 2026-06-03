@@ -46,10 +46,6 @@
             transition: transform 0.3s ease;
         }
 
-        .main-banner:hover {
-            transform: scale(1.01);
-        }
-
         .main-banner h1 {
             margin: 0;
             font-size: 38px;
@@ -69,6 +65,91 @@
             letter-spacing: 1px;
         }
 
+        /* СТИЛИ ДЛЯ АВТО-СЛАЙДЕРА (КАРУСЕЛИ) */
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+            height: 400px; /* Высота главного слайдера */
+            margin-bottom: 50px;
+            overflow: hidden;
+            border: 2px solid #0044cc;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider-track {
+            display: flex;
+            width: 600%; /* 6 слайдов по 100% ширины каждый */
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Плавная анимация перемещения */
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Кнопки-стрелочки */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 26, 77, 0.7);
+            border: 2px solid #0066ff;
+            color: white;
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: #0066ff;
+            box-shadow: 0 0 15px #0066ff;
+        }
+
+        .slider-btn.prev { left: 20px; }
+        .slider-btn.next { right: 20px; }
+
+        /* Навигационные точки внизу слайдера */
+        .slider-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: #0088ff;
+            box-shadow: 0 0 8px #0088ff;
+        }
+
+        /* Сетка для тренеров (3:4) */
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -76,18 +157,7 @@
             margin-bottom: 50px;
         }
 
-        .club-img {
-            background: #001a4d;
-            border: 2px solid #0044cc;
-            border-radius: 8px;
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
-        .trainer-card, .trainer-img {
+        .trainer-card {
             background: #001a4d;
             border: 2px solid #0044cc;
             border-radius: 8px;
@@ -104,12 +174,7 @@
             transition: all 0.3s ease;
         }
 
-        .trainer-img {
-            object-fit: cover;
-            padding: 0;
-        }
-
-        .club-img:hover, .trainer-card:hover, .trainer-img:hover {
+        .trainer-card:hover {
             transform: translateY(-5px);
             border-color: #ffffff;
             color: #ffffff;
@@ -187,12 +252,33 @@
             <h1>спортивный клуб юниор</h1>
         </div>
 
+        <!-- СЕКЦИЯ: ИНТЕРАКТИВНЫЙ СЛАЙДЕР ИЗ 6 ФОТОГРАФИЙ -->
         <section>
             <h2 class="section-title">Фотографии клуба</h2>
-            <div class="photo-grid">
-                <img src="hoto.png" alt="Фото клуба 1" class="club-img">
-                <img src="hoto2.png" alt="Фото клуба 2" class="club-img">
-                <img src="hoto3.png" alt="Фото клуба 3" class="club-img">
+            <div class="slider-container">
+                <!-- Стрелочки -->
+                <button class="slider-btn prev">❮</button>
+                <button class="slider-btn next">❯</button>
+                
+                <!-- Линия с картинками -->
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slide"><img src="hoto.png" alt="Фото клуба 1"></div>
+                    <div class="slide"><img src="hoto2.png" alt="Фото клуба 2"></div>
+                    <div class="slide"><img src="hoto3.png" alt="Фото клуба 3"></div>
+                    <div class="slide"><img src="hoto4.png" alt="Фото клуба 4"></div>
+                    <div class="slide"><img src="hoto5.png" alt="Фото клуба 5"></div>
+                    <div class="slide"><img src="hoto6.png" alt="Фото клуба 6"></div>
+                </div>
+
+                <!-- Точечная навигация -->
+                <div class="slider-dots" id="sliderDots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
             </div>
         </section>
 
@@ -205,7 +291,6 @@
         </section>
 
         <div class="footer-info">
-            <!-- ИЗМЕНЕННЫЙ ТЕКСТ ТУТ -->
             <div class="contact-row">
                 <strong>Заказать абонемент по номеру:</strong> +7 (999) 123-45-67
             </div>
@@ -227,22 +312,21 @@
 
     <div class="toast" id="toast">Ссылка скопирована!</div>
 
+    <!-- СКРИПТ УПРАВЛЕНИЯ КАРУСЕЛЬЮ -->
     <script>
-        const copyButtons = document.querySelectorAll('.copy-btn');
-        const toast = document.getElementById('toast');
+        const track = document.getElementById('sliderTrack');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.slider-btn.prev');
+        const nextBtn = document.querySelector('.slider-btn.next');
+        
+        let currentIndex = 0;
+        const totalSlides = 6;
+        const autoPlayTime = 3000; // Картинки меняются каждые 3 секунды
 
-        copyButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const textToCopy = button.getAttribute('data-copy');
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    toast.style.display = 'block';
-                    setTimeout(() => {
-                        toast.style.display = 'none';
-                    }, 2000);
-                });
-            });
-        });
-    </script>
+        // Функция обновления позиции слайдера
+        function updateSlider(index) {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
 
-</body>
-</html>
