@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,42 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СК Юниор | Спортивный Клуб</title>
     <style>
-        /* СВЕТЛО-СИНИЙ КОСМИЧЕСКИЙ СТИЛЬ: ТОЛЬКО СИНИЙ И БЕЛОЙ */
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #002266; /* СДЕЛАЛИ ФОН НАМНОГО СВЕТЛЕЕ */
+            background-color: #002266;
             color: #ffffff;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             border: 3px solid #0066ff;
             min-height: 100vh;
-        }
-
-        /* Верхняя панель */
-        .top-bar {
-            background: #001a4d;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: flex-end;
-            border-bottom: 2px solid #0066ff;
-        }
-
-        .manager-btn {
-            background: transparent;
-            color: #ffffff;
-            border: 2px solid #0066ff;
-            padding: 8px 20px;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .manager-btn:hover {
-            background: #0066ff;
-            color: #001a4d;
-            box-shadow: 0 0 15px #0066ff;
         }
 
         .container {
@@ -51,8 +23,8 @@
         }
 
         header {
-            padding: 10px 0;
-            margin-bottom: 30px;
+            padding: 20px 0;
+            margin-bottom: 20px;
         }
 
         .site-name {
@@ -63,10 +35,9 @@
             display: inline-block;
         }
 
-        /* КРАСИВЫЙ БАННЕР БЕЗ СИМВОЛОВ */
         .main-banner {
             background: #001a4d; 
-            border: 3px solid #0066ff; /* Синяя обводка */
+            border: 3px solid #0066ff;
             padding: 40px 20px;
             border-radius: 12px;
             text-align: center;
@@ -84,11 +55,10 @@
             font-size: 38px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #ffffff; /* Белый текст заголовка */
+            color: #ffffff;
             text-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
         }
 
-        /* Чистые заголовки без выкрутасов */
         .section-title {
             font-size: 22px;
             color: #ffffff;
@@ -106,8 +76,7 @@
             margin-bottom: 50px;
         }
 
-        /* Карточки для фото */
-        .photo-placeholder {
+        .photo-placeholder, .club-img {
             background: #001a4d;
             border: 2px solid #0044cc;
             border-radius: 8px;
@@ -119,24 +88,30 @@
             font-weight: 500;
             text-align: center;
             padding: 15px;
+            box-sizing: border-box;
             transition: all 0.3s ease;
         }
 
-        .photo-placeholder:hover {
+        .club-img {
+            width: 100%;
+            object-fit: cover;
+            padding: 0;
+        }
+
+        .photo-placeholder:hover, .club-img:hover {
             transform: translateY(-5px);
             border-color: #ffffff;
             color: #ffffff;
             background: #002266;
-            box-shadow: 0 0 20px rgba(0, 102, 255, 0.5); /* Синее неоновое свечение */
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
         }
 
-        /* Панель контактов внизу */
         .footer-info {
             background: #001a4d;
             border: 2px solid #0066ff;
             border-radius: 12px;
             padding: 30px;
-            margin-top: 50px;
+            margin-top: 40px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
@@ -174,7 +149,6 @@
             box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
         }
 
-        /* Синее уведомление */
         .toast {
             display: none;
             position: fixed;
@@ -192,17 +166,12 @@
 </head>
 <body>
 
-    <div class="top-bar">
-        <button class="manager-btn" id="managerBtn">Связаться с менеджером</button>
-    </div>
-
     <div class="container">
         
         <header>
             <div class="site-name">unior</div>
         </header>
 
-        <!-- БАННЕР С СИНЕЙ ОБВОДКОЙ И БЕЛЫМ ТЕКСТОМ -->
         <div class="main-banner">
             <h1>спортивный клуб юниор</h1>
         </div>
@@ -210,9 +179,9 @@
         <section>
             <h2 class="section-title">Фотографии клуба</h2>
             <div class="photo-grid">
-                <div class="photo-placeholder">Место для фотографии клуба 1</div>
-                <div class="photo-placeholder">Место для фотографии клуба 2</div>
-                <div class="photo-placeholder">Место для фотографии клуба 3</div>
+                <img src="hoto.png" alt="Фото клуба 1" class="club-img">
+                <img src="hoto2.png" alt="Фото клуба 2" class="club-img">
+                <img src="hoto3.png" alt="Фото клуба 3" class="club-img">
             </div>
         </section>
 
@@ -247,10 +216,6 @@
     <div class="toast" id="toast">Ссылка скопирована!</div>
 
     <script>
-        document.getElementById('managerBtn').addEventListener('click', () => {
-            alert('Запрос отправлен менеджеру. Пожалуйста, ожидайте.');
-        });
-
         const copyButtons = document.querySelectorAll('.copy-btn');
         const toast = document.getElementById('toast');
 
@@ -269,3 +234,5 @@
 
 </body>
 </html>
+
+ 
