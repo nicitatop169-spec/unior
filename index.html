@@ -1,34 +1,34 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СК Юниор | Спортивный Клуб</title>
     <style>
-        /* Новая СВЕТЛАЯ тема (Белый фон) */
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #ffffff;
-            color: #1a202c; /* Темный текст для контраста */
+            color: #1a202c;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: background 0.3s;
+            border: 6px solid #0044cc; /* СИНЯЯ РАМКА вокруг всего сайта */
+            min-height: 100vh;
         }
 
         /* Кнопка "Связаться с менеджером" над заголовком */
         .top-bar {
-            background: #f8fafc;
-            padding: 10px 20px;
+            background: #0052cc; /* СИНЯЯ ВЕРХНЯЯ ПАНЕЛЬ */
+            padding: 12px 20px;
             display: flex;
             justify-content: flex-end;
-            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(0, 82, 204, 0.2);
         }
 
         .manager-btn {
-            background: #e11d48; /* Красный цвет */
+            background: #e11d48; /* Ярко-красная кнопка на синем фоне */
             color: white;
-            border: none;
+            border: 2px solid #ffffff; /* Белая обводка для контраста */
             padding: 8px 16px;
             border-radius: 6px;
             font-weight: bold;
@@ -39,40 +39,37 @@
         .manager-btn:hover {
             background: #be123c;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
         }
 
-        /* Главный контейнер */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* Шапка: Название слева */
         header {
             padding: 15px 0;
         }
 
         .site-name {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
-            color: #0066ff;
-            text-transform: lowercase; /* unior */
+            color: #0052cc; /* Ярко-синий цвет */
+            text-transform: lowercase;
             display: inline-block;
             transition: transform 0.3s ease;
         }
         
-        /* Анимация для названия unior: покачивание при наведении */
         .site-name:hover {
             transform: skewX(-10deg) scale(1.1);
-            color: #e11d48;
+            color: #e11d48; /* Меняется на красный при наведении */
         }
 
-        /* КРАСНЫЙ ЗАГОЛОВОК С КРАСНОЙ ОБВОДКОЙ */
+        /* КРАСНЫЙ БАННЕР С КРАСНОЙ ОБВОДКОЙ */
         .main-banner {
-            background: #e11d48; /* Красный фон */
-            border: 5px solid #be123c; /* Темно-красная толстая обводка */
+            background: #e11d48;
+            border: 5px solid #be123c;
             padding: 40px 20px;
             border-radius: 12px;
             text-align: center;
@@ -82,7 +79,7 @@
         }
 
         .main-banner:hover {
-            transform: scale(1.02); /* Легкое увеличение баннера */
+            transform: scale(1.02);
         }
 
         .main-banner h1 {
@@ -94,11 +91,10 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Разделы с анимацией текста при наведении */
         .section-title {
             font-size: 24px;
-            color: #1a202c;
-            border-left: 4px solid #e11d48;
+            color: #0052cc; /* СИНЯЯ ЛИНИЯ и ТЕКСТ */
+            border-left: 5px solid #0052cc;
             padding-left: 15px;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -106,10 +102,10 @@
             transition: all 0.3s ease;
         }
 
-        /* Эффект для заголовков: сдвиг вправо и смена цвета на красный */
         .section-title:hover {
             padding-left: 25px;
-            color: #e11d48;
+            color: #e11d48; /* Меняется на красный */
+            border-left-color: #e11d48;
             border-left-width: 8px;
         }
 
@@ -120,38 +116,38 @@
             margin-bottom: 50px;
         }
 
-        /* Заглушки для ваших будущих фото */
         .photo-placeholder {
             background: #f1f5f9;
-            border: 2px dashed #cbd5e1;
+            border: 2px dashed #0052cc; /* СИНЯЯ ПУНКТИРНАЯ РАМКА */
             border-radius: 8px;
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #64748b;
+            color: #0052cc;
             font-weight: 500;
             text-align: center;
             padding: 10px;
-            transition: all 0.3s ease; /* Плавность для анимации */
+            transition: all 0.3s ease;
         }
 
-        /* Анимация карточек: приподнимание, появление тени и красной рамки */
+        /* СИНЯЯ НЕОНОВАЯ ПОДСВЕТКА при наведении */
         .photo-placeholder:hover {
             transform: translateY(-8px);
             background: #ffffff;
-            border-color: #e11d48;
+            border-color: #e11d48; /* Меняется на красный */
             color: #e11d48;
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 25px rgba(0, 82, 204, 0.3); /* Синее свечение */
         }
 
-        /* Нижная панель (Светлая с серой рамкой) */
+        /* НИЖНЯЯ ПАНЕЛЬ С СИНЕЙ ОБВОДКОЙ */
         .footer-info {
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            border: 2px solid #0052cc; /* Синий контур */
             border-radius: 12px;
             padding: 30px;
             margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0, 82, 204, 0.05);
         }
 
         .contact-row {
@@ -160,16 +156,14 @@
             transition: all 0.2s ease;
         }
 
-        /* Интерактивный текст контактов: укрупняется при наведении */
         .contact-row:hover {
             transform: translateX(5px);
         }
 
         .contact-row strong {
-            color: #e11d48;
+            color: #0052cc; /* Синие акценты */
         }
 
-        /* Кнопки соцсетей */
         .social-buttons {
             display: flex;
             gap: 15px;
@@ -180,8 +174,8 @@
 
         .copy-btn {
             background: #ffffff;
-            border: 1px solid #cbd5e1;
-            color: #1a202c;
+            border: 2px solid #0052cc; /* Синие кнопки */
+            color: #0052cc;
             padding: 10px 20px;
             border-radius: 8px;
             cursor: pointer;
@@ -190,13 +184,13 @@
         }
 
         .copy-btn:hover {
-            background: #e11d48;
+            background: #e11d48; /* Кнопки взрываются красным при наведении */
             border-color: #e11d48;
             color: white;
             transform: scale(1.05);
         }
 
-        /* Всплывашка об успешном копировании */
+        /* Красная всплывашка копирования */
         .toast {
             display: none;
             position: fixed;
@@ -214,24 +208,20 @@
 </head>
 <body>
 
-    <!-- Верхняя линия с кнопкой -->
     <div class="top-bar">
         <button class="manager-btn" id="managerBtn">Связаться с менеджером</button>
     </div>
 
     <div class="container">
         
-        <!-- Название сайта unior (наведи мышку, чтобы увидеть анимацию) -->
         <header>
             <div class="site-name">unior</div>
         </header>
 
-        <!-- Красный заголовок с красной рамкой -->
         <div class="main-banner">
             <h1>спортивный клуб юниор</h1>
         </div>
 
-        <!-- Фотографии клуба -->
         <section>
             <h2 class="section-title">Фотографии клуба</h2>
             <div class="photo-grid">
@@ -241,7 +231,6 @@
             </div>
         </section>
 
-        <!-- Фотографии тренеров -->
         <section>
             <h2 class="section-title">Наши тренеры</h2>
             <div class="photo-grid">
@@ -250,7 +239,6 @@
             </div>
         </section>
 
-        <!-- Нижний блок: Контакты, Соцсети и Адрес -->
         <div class="footer-info">
             <div class="contact-row">
                 <strong>Номер телефона тренера:</strong> +7 (999) 123-45-67
@@ -264,23 +252,20 @@
                 </div>
             </div>
 
-            <div class="contact-row" style="border-top: 1px solid #e2e8f0; padding-top: 15px;">
+            <div class="contact-row" style="border-top: 2px solid #f1f5f9; padding-top: 15px;">
                 <strong>Адрес клуба:</strong> г. Москва, ул. Спортивная, д. 11, комплекс «Юниор»
             </div>
         </div>
 
     </div>
 
-    <!-- Уведомление о копировании -->
     <div class="toast" id="toast">Ссылка скопирована в буфер обмена!</div>
 
     <script>
-        // Логика кнопки менеджера
         document.getElementById('managerBtn').addEventListener('click', () => {
             alert('Вызов менеджера: Оставьте ваши контакты.');
         });
 
-        // Логика копирования
         const copyButtons = document.querySelectorAll('.copy-btn');
         const toast = document.getElementById('toast');
 
@@ -299,4 +284,3 @@
 
 </body>
 </html>
-
