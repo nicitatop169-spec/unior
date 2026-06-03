@@ -7,22 +7,22 @@
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #0033aa; /* ПЕРЕКРАСИЛИ ВЕСЬ БЕЛЫЙ ФОН В СИНbackground */
-            color: #ffffff; /* Поменяли текст на белый для читаемости */
+            background: #00d2ff; /* КРУТОЙ ЯРКИЙ ГОЛУБОЙ ФОН */
+            color: #0b1527; /* Темный текст для отличной читаемости на голубом */
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            border: 6px solid #e11d48; /* Сделали внешнюю рамку красной для стиля */
+            border: 6px solid #e11d48; /* Красная внешняя рамка сайта */
             min-height: 100vh;
         }
 
         /* Кнопка "Связаться с менеджером" над заголовком */
         .top-bar {
-            background: #002288; /* Темно-синий фон панели */
+            background: #00b8e6; /* Чуть более плотный голубой для панели */
             padding: 12px 20px;
             display: flex;
             justify-content: flex-end;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .manager-btn {
@@ -55,10 +55,11 @@
         .site-name {
             font-size: 26px;
             font-weight: bold;
-            color: #ffffff; /* Белый текст unior на синем фоне */
+            color: #ffffff; /* Белое контрастное название unior */
             text-transform: lowercase;
             display: inline-block;
             transition: transform 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
         
         .site-name:hover {
@@ -68,13 +69,13 @@
 
         /* КРАСНЫЙ БАННЕР С КРАСНОЙ ОБВОДКОЙ */
         .main-banner {
-            background: #e11d48; /* Красный фон заголовка */
-            border: 5px solid #be123c; /* Красная обводка оставлена */
+            background: #e11d48; /* Красный фон баннера */
+            border: 5px solid #be123c; /* Темно-красная обводка сохранена */
             padding: 40px 20px;
             border-radius: 12px;
             text-align: center;
             margin-bottom: 40px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease;
         }
 
@@ -87,19 +88,20 @@
             font-size: 42px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #ffffff; /* ВНУТРИ ЗАГОЛОВКА ОСТАВИЛИ ВЕЛИКОЛЕПНЫЙ БЕЛЫЙ ЦВЕТ */
+            color: #ffffff; /* ВНУТРИ БАННЕРА ОСТАЛСЯ БЕЛЫЙ ЦВЕТ */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .section-title {
             font-size: 24px;
-            color: #ffffff; /* Заголовки секций стали белыми */
-            border-left: 5px solid #e11d48; /* Линия слева стала красной */
+            color: #ffffff; /* Белые заголовки секций шикарно смотрятся на голубом */
+            border-left: 5px solid #e11d48; /* Красная линия слева */
             padding-left: 15px;
             margin-bottom: 20px;
             text-transform: uppercase;
             display: inline-block;
             transition: all 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .section-title:hover {
@@ -116,36 +118,37 @@
         }
 
         .photo-placeholder {
-            background: #002288; /* Темно-синие карточки для фото */
-            border: 2px dashed #e11d48; /* Красная пунктирная рамка */
+            background: #ffffff; /* Карточки оставил белыми внутри, чтобы ваши фото потом выделялись */
+            border: 2px dashed #e11d48; /* Красный спортивный пунктир */
             border-radius: 8px;
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
+            color: #e11d48;
             font-weight: 500;
             text-align: center;
             padding: 10px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         .photo-placeholder:hover {
             transform: translateY(-8px);
-            background: #001166;
+            background: #e11d48;
             border-color: #ffffff;
-            color: #e11d48;
+            color: #ffffff;
             box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4); /* Красное неоновое свечение */
         }
 
-        /* НИЖНЯЯ ПАНЕЛЬ С СИНЕМ ФОНОМ И КРАСНОЙ ОБВОДКОЙ */
+        /* НИЖНЯЯ ПАНЕЛЬ С СИНЕ-ГОЛУБЫМ КОНТРАСТОМ */
         .footer-info {
-            background: #002288;
-            border: 2px solid #e11d48;
+            background: #ffffff;
+            border: 3px solid #e11d48; /* Мощный красный контур */
             border-radius: 12px;
             padding: 30px;
             margin-top: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .contact-row {
@@ -159,7 +162,7 @@
         }
 
         .contact-row strong {
-            color: #e11d48; /* Красные акценты для текста */
+            color: #e11d48; /* Красные акценты */
         }
 
         .social-buttons {
@@ -171,9 +174,9 @@
         }
 
         .copy-btn {
-            background: #0033aa;
+            background: #00d2ff; /* Кнопки тоже голубые в цвет фона */
             border: 2px solid #e11d48;
-            color: #ffffff;
+            color: #0b1527;
             padding: 10px 20px;
             border-radius: 8px;
             cursor: pointer;
@@ -183,11 +186,12 @@
 
         .copy-btn:hover {
             background: #e11d48;
-            border-color: #ffffff;
+            border-color: #e11d48;
+            color: white;
             transform: scale(1.05);
         }
 
-        /* Красная всплывашка копирования */
+        /* Всплывающее уведомление */
         .toast {
             display: none;
             position: fixed;
@@ -249,7 +253,7 @@
                 </div>
             </div>
 
-            <div class="contact-row" style="border-top: 2px solid #0033aa; padding-top: 15px;">
+            <div class="contact-row" style="border-top: 2px solid #f1f5f9; padding-top: 15px;">
                 <strong>Адрес клуба:</strong> г. Москва, ул. Спортивная, д. 11, комплекс «Юниор»
             </div>
         </div>
@@ -281,3 +285,4 @@
 
 </body>
 </html>
+
