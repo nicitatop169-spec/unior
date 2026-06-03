@@ -1,64 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СК Юниор | КИБЕР-ИНТЕРФЕЙС</title>
+    <title>СК Юниор | Спортивный Клуб</title>
     <style>
-        /* SCI-FI СТИЛЬ: ТОЛЬКО СИНИЙ И БЕЛОЙ */
+        /* СВЕТЛО-СИНИЙ КОСМИЧЕСКИЙ СТИЛЬ: ТОЛЬКО СИНИЙ И БЕЛОЙ */
         body {
-            font-family: 'Courier New', Courier, monospace, sans-serif;
-            background-color: #000a22; /* Сверхглубокий космический синий */
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #002266; /* СДЕЛАЛИ ФОН НАМНОГО СВЕТЛЕЕ */
             color: #ffffff;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            border: 3px solid #0055ff;
+            border: 3px solid #0066ff;
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
         }
 
-        /* Эффект сетки / сканирования на фоне */
-        body::before {
-            content: " ";
-            display: block;
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 85, 255, 0.15) 50%), linear-gradient(90deg, rgba(0, 85, 255, 0.05), rgba(0, 85, 255, 0.01), rgba(0, 85, 255, 0.05));
-            z-index: 9999;
-            background-size: 100% 4px, 6px 100%;
-            pointer-events: none;
-        }
-
-        /* Верхняя панель управления */
+        /* Верхняя панель */
         .top-bar {
-            background: rgba(0, 34, 136, 0.5);
+            background: #001a4d;
             padding: 15px 20px;
             display: flex;
             justify-content: flex-end;
-            border-bottom: 2px solid #0055ff;
-            backdrop-filter: blur(5px);
+            border-bottom: 2px solid #0066ff;
         }
 
         .manager-btn {
             background: transparent;
             color: #ffffff;
-            border: 2px solid #0055ff;
+            border: 2px solid #0066ff;
             padding: 8px 20px;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 85, 255, 0.3);
         }
 
         .manager-btn:hover {
-            background: #0055ff;
-            color: #000a22;
-            box-shadow: 0 0 20px #0055ff;
-            transform: translateY(-1px);
+            background: #0066ff;
+            color: #001a4d;
+            box-shadow: 0 0 15px #0066ff;
         }
 
         .container {
@@ -69,59 +52,51 @@
 
         header {
             padding: 10px 0;
-            border-bottom: 1px dashed #0055ff;
             margin-bottom: 30px;
         }
 
         .site-name {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
-            color: #0055ff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
+            color: #0088ff;
+            letter-spacing: 1px;
             display: inline-block;
         }
 
-        /* НАУЧНО-ФАНТАСТИЧЕСКИЙ БАННЕР С СИНЕЙ ОБВОДКОЙ */
+        /* КРАСИВЫЙ БАННЕР БЕЗ СИМВОЛОВ */
         .main-banner {
-            background: rgba(0, 85, 255, 0.1);
-            border: 2px solid #0055ff; /* Синяя обводка */
-            padding: 35px 20px;
+            background: #001a4d; 
+            border: 3px solid #0066ff; /* Синяя обводка */
+            padding: 40px 20px;
+            border-radius: 12px;
             text-align: center;
             margin-bottom: 50px;
-            position: relative;
-            box-shadow: inset 0 0 20px rgba(0, 85, 255, 0.2), 0 0 15px rgba(0, 85, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
+            transition: transform 0.3s ease;
         }
 
-        /* Угловые декоративные элементы для Sci-Fi стиля */
-        .main-banner::before, .main-banner::after {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border: 2px solid #ffffff;
+        .main-banner:hover {
+            transform: scale(1.01);
         }
-        .main-banner::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
-        .main-banner::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
 
         .main-banner h1 {
             margin: 0;
-            font-size: 36px;
+            font-size: 38px;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #ffffff; /* Белый заголовок */
-            text-shadow: 0 0 10px rgba(0, 85, 255, 0.8);
+            letter-spacing: 2px;
+            color: #ffffff; /* Белый текст заголовка */
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
         }
 
-        /* Секции */
+        /* Чистые заголовки без выкрутасов */
         .section-title {
-            font-size: 20px;
+            font-size: 22px;
             color: #ffffff;
-            border-left: 4px solid #0055ff;
+            border-left: 5px solid #0066ff;
             padding-left: 15px;
             margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .photo-grid {
@@ -131,52 +106,49 @@
             margin-bottom: 50px;
         }
 
-        /* Кибер-блоки для будущих фото */
+        /* Карточки для фото */
         .photo-placeholder {
-            background: rgba(0, 34, 136, 0.2);
-            border: 1px solid #0033aa;
+            background: #001a4d;
+            border: 2px solid #0044cc;
+            border-radius: 8px;
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0055ff;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            color: #0088ff;
+            font-weight: 500;
             text-align: center;
             padding: 15px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
+            transition: all 0.3s ease;
         }
 
         .photo-placeholder:hover {
-            transform: scale(1.03);
+            transform: translateY(-5px);
             border-color: #ffffff;
             color: #ffffff;
-            background: rgba(0, 85, 255, 0.15);
-            box-shadow: 0 0 25px rgba(0, 85, 255, 0.4);
+            background: #002266;
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.5); /* Синее неоновое свечение */
         }
 
-        /* Панель контактов в стиле терминала */
+        /* Панель контактов внизу */
         .footer-info {
-            background: rgba(0, 10, 34, 0.8);
-            border: 2px solid #0055ff;
+            background: #001a4d;
+            border: 2px solid #0066ff;
+            border-radius: 12px;
             padding: 30px;
             margin-top: 50px;
-            box-shadow: inset 0 0 15px rgba(0, 85, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .contact-row {
             margin-bottom: 20px;
-            font-size: 14px;
-            letter-spacing: 1px;
-            border-bottom: 1px rgba(0, 85, 255, 0.2) solid;
+            font-size: 16px;
             padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 102, 255, 0.2);
         }
 
         .contact-row strong {
-            color: #0055ff;
-            text-transform: uppercase;
+            color: #0088ff;
         }
 
         .social-buttons {
@@ -186,54 +158,48 @@
             margin-top: 15px;
         }
 
-        /* Высокотехнологичные кнопки */
         .copy-btn {
-            background: transparent;
-            border: 1px solid #0055ff;
+            background: #002266;
+            border: 1px solid #0066ff;
             color: #ffffff;
             padding: 10px 24px;
+            border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: inherit;
             transition: all 0.3s ease;
         }
 
         .copy-btn:hover {
-            background: rgba(0, 85, 255, 0.2);
-            border-color: #ffffff;
-            box-shadow: 0 0 15px rgba(0, 85, 255, 0.5);
+            background: #0066ff;
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
         }
 
-        /* Системное уведомление */
+        /* Синее уведомление */
         .toast {
             display: none;
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background: #0055ff;
-            color: #000a22;
+            background: #0066ff;
+            color: #001a4d;
             padding: 12px 24px;
+            border-radius: 6px;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(0, 85, 255, 0.6);
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
             z-index: 10000;
         }
     </style>
 </head>
 <body>
 
-    <!-- ВЕРХНЯЯ СИСТЕМА УПРАВЛЕНИЯ -->
     <div class="top-bar">
-        <button class="manager-btn" id="managerBtn">[ СВЯЗЬ С МЕНЕДЖЕРОМ ]</button>
+        <button class="manager-btn" id="managerBtn">Связаться с менеджером</button>
     </div>
 
     <div class="container">
         
         <header>
-            <div class="site-name">// unior.sys</div>
+            <div class="site-name">unior</div>
         </header>
 
         <!-- БАННЕР С СИНЕЙ ОБВОДКОЙ И БЕЛЫМ ТЕКСТОМ -->
@@ -241,33 +207,30 @@
             <h1>спортивный клуб юниор</h1>
         </div>
 
-        <!-- МОДУЛЬ: ГАЛЕРЕЯ КЛУБА -->
         <section>
-            <h2 class="section-title">> ДАННЫЕ_КЛУБА // ФОТОГРАФИИ</h2>
+            <h2 class="section-title">Фотографии клуба</h2>
             <div class="photo-grid">
-                <div class="photo-placeholder">[ СЛОТ_01: ОБЪЕКТ ПОДГОТОВКИ ]</div>
-                <div class="photo-placeholder">[ СЛОТ_02: ТРЕНИРОВОЧНАЯ ЗОНА ]</div>
-                <div class="photo-placeholder">[ СЛОТ_03: ИГРОВОЕ ПОЛЕ ]</div>
+                <div class="photo-placeholder">Место для фотографии клуба 1</div>
+                <div class="photo-placeholder">Место для фотографии клуба 2</div>
+                <div class="photo-placeholder">Место для фотографии клуба 3</div>
             </div>
         </section>
 
-        <!-- МОДУЛЬ: ПЕРСОНАЛ -->
         <section>
-            <h2 class="section-title">> РЕЕСТР_ТРЕНЕРОВ // СОСТАВ</h2>
+            <h2 class="section-title">Наши тренеры</h2>
             <div class="photo-grid">
-                <div class="photo-placeholder">[ ПРОФИЛЬ: ТРЕНЕР_01 ]</div>
-                <div class="photo-placeholder">[ ПРОФИЛЬ: ТРЕНЕР_02 ]</div>
+                <div class="photo-placeholder">Фотография тренера 1</div>
+                <div class="photo-placeholder">Фотография тренера 2</div>
             </div>
         </section>
 
-        <!-- ИНФОРМАЦИОННЫЙ ТЕРМИНАЛ -->
         <div class="footer-info">
             <div class="contact-row">
-                <strong>[ СВЯЗЬ_ТРЕНЕР ]:</strong> +7 (999) 123-45-67
+                <strong>Номер телефона тренера:</strong> +7 (999) 123-45-67
             </div>
 
             <div class="contact-row">
-                <strong>[ СЕТЕВЫЕ_ПРОТОКОЛЫ ] (КЛИК ДЛЯ КОПИРОВАНИЯ):</strong>
+                <strong>Наши соцсети (нажмите для копирования):</strong>
                 <div class="social-buttons">
                     <button class="copy-btn" data-copy="https://vk.com">ВКонтакте</button>
                     <button class="copy-btn" data-copy="@unior_telegram">Telegram</button>
@@ -275,18 +238,17 @@
             </div>
 
             <div class="contact-row" style="border: none; margin: 0; padding: 0;">
-                <strong>[ ЛОКАЦИЯ_БАЗЫ ]:</strong> г. Москва, ул. Спортивная, д. 11, комплекс «Юниор»
+                <strong>Адрес клуба:</strong> г. Москва, ул. Спортивная, д. 11, комплекс «Юниор»
             </div>
         </div>
 
     </div>
 
-    <!-- СИСТЕМНОЕ ОКНО -->
-    <div class="toast" id="toast">СТАТУС: ДАННЫЕ СКОПИРОВАНЫ</div>
+    <div class="toast" id="toast">Ссылка скопирована!</div>
 
     <script>
         document.getElementById('managerBtn').addEventListener('click', () => {
-            alert('СИСТЕМА: Запрос отправлен менеджеру. Ожидайте соединения.');
+            alert('Запрос отправлен менеджеру. Пожалуйста, ожидайте.');
         });
 
         const copyButtons = document.querySelectorAll('.copy-btn');
