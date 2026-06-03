@@ -3,291 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой Полноценный Сайт</title>
+    <title>ФК Юниор | Официальный сайт</title>
     <style>
-        /* Базовые стили и переменные для смены тем */
-        :root {
-            --bg-color: #f5f7fa;
-            --text-color: #2d3748;
-            --card-bg: #ffffff;
-            --primary-color: #6c5ce7;
-            --accent-color: #a29bfe;
-        }
-
-        /* Стили для Тёмной темы */
-        [data-theme="dark"] {
-            --bg-color: #1a202c;
-            --text-color: #f7fafc;
-            --card-bg: #2d3748;
-            --primary-color: #a29bfe;
-            --accent-color: #6c5ce7;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #0b0f19 0%, #02040a 100%);
+            color: #ffffff;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Навигация (Шапка) */
-        header {
-            background-color: var(--card-bg);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
-
-        nav {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 15px 20px;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            margin: 0;
-            padding: 0;
-        }
-
-            .nav-links a {
-                text-decoration: none;
-                color: var(--text-color);
-                font-weight: 500;
-                transition: color 0.2s;
-            }
-
-                .nav-links a:hover {
-                    color: var(--primary-color);
-                }
-
-        /* Кнопка смены темы */
-        #theme-toggle {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        /* Главный контейнер */
-        main {
-            max-width: 1100px;
-            margin: 100px auto 40px auto;
-            padding: 0 20px;
-        }
-
-        /* Секция: Приветствие */
-        .hero {
+        .container {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-            color: white;
-            border-radius: 20px;
-            margin-bottom: 40px;
-        }
-
-            .hero h1 {
-                margin: 0 0 10px 0;
-                font-size: 40px;
-            }
-
-            .hero p {
-                font-size: 20px;
-                margin: 0;
-                opacity: 0.9;
-            }
-
-        /* Секция: Сетка проектов */
-        .section-title {
-            font-size: 28px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--primary-color);
-            padding-left: 10px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-
-            .card:hover {
-                transform: translateY(-5px);
-            }
-
-            .card h3 {
-                margin-top: 0;
-                color: var(--primary-color);
-            }
-
-        /* Секция: Контакты (Форма) */
-        .contact-form {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 500px;
-            margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-            .form-group label {
-                display: block;
-                margin-bottom: 5px;
-                font-weight: 500;
-            }
-
-            .form-group input, .form-group textarea {
-                width: 100%;
-                padding: 10px;
-                border: 1px solid #cbd5e0;
-                border-radius: 8px;
-                box-sizing: border-box;
-                background-color: var(--bg-color);
-                color: var(--text-color);
-            }
-
-        .submit-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 20px;
+            padding: 40px 20px;
+            max-width: 600px;
             width: 100%;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
+            box-sizing: border-box;
         }
 
-            .submit-btn:hover {
-                opacity: 0.9;
-            }
+        h1 {
+            font-size: 64px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
+        }
 
-        /* Подвал сайта */
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 14px;
-            opacity: 0.7;
+        .subtitle {
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #0066ff;
+            margin-top: 5px;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .ticket-card {
+            background: linear-gradient(145deg, #0d1527, #070a14);
+            border: 2px solid #0052cc;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 35px rgba(0, 102, 255, 0.2);
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-5px);
+            border-color: #0066ff;
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.4);
+        }
+
+        .ticket-card h3 {
+            margin: 0 0 15px 0;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: 800;
+            color: #0066ff;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
+        }
+
+        .info-block {
+            font-size: 16px;
+            color: #8fa0c0;
+            line-height: 1.8;
+            border-top: 1px solid rgba(0, 102, 255, 0.2);
+            padding-top: 25px;
+        }
+
+        .info-block strong {
+            color: #ffffff;
+        }
+
+        .football-animation {
+            display: none;
+            position: fixed;
+            font-size: 60px;
+            left: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        @keyframes kickBall {
+            0% { left: -100px; transform: translateY(-50%) rotate(0deg) scale(0.5); }
+            50% { transform: translateY(-120%) rotate(360deg) scale(1.5); }
+            100% { left: 110vw; transform: translateY(-50%) rotate(720deg) scale(0.5); }
         }
     </style>
 </head>
 <body>
 
-    <!-- НАВИГАЦИЯ -->
-    <header>
-        <nav>
-            <div class="logo">MySite.</div>
-            <ul class="nav-links">
-                <li><a href="#about">Главная</a></li>
-                <li><a href="#projects">Проекты</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-            <button id="theme-toggle">Тема</button>
-        </nav>
-    </header>
+    <div class="container">
+        <h1>Юниор</h1>
+        <div class="subtitle">футбольный клуб</div>
 
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
-    <main>
-        <!-- Блок приветствия -->
-        <section class="hero" id="about">
-            <h1>Привет, это мой первый сайт!</h1>
-            <p>Здесь объединены HTML, CSS переменные и JavaScript логика.</p>
-        </section>
+        <div class="ticket-card" id="buyTicket">
+            <h3>Стоимость абонемента</h3>
+            <p class="price">3 000 ₽</p>
+            <p style="color: #657795; margin: 10px 0 0 0; font-size: 14px;">Нажмите для оформления</p>
+        </div>
 
-        <!-- Блок проектов -->
-        <section id="projects">
-            <h2 class="section-title">Мои проекты</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Проект 1: Изучение HTML</h3>
-                    <p>Создал первую разметку, научился открывать текстовые файлы в браузере.</p>
-                </div>
-                <div class="card">
-                    <h3>Проект 2: Стили CSS</h3>
-                    <p>Добавил градиенты, тени, красивые шрифты и flexbox-выравнивание.</p>
-                </div>
-                <div class="card">
-                    <h3>Проект 3: Логика JavaScript</h3>
-                    <p>Написал скрипты для интерактива: переключение тем и обработка кликов.</p>
-                </div>
-            </div>
-        </section>
+        <div class="info-block">
+            <p><strong>Адрес базы:</strong> г. Москва, ул. Спортивная, д. 11, стадион «Юниор Арена»</p>
+            <p><strong>Горячая линия:</strong> 8 (800) 555-35-35 (Звонок бесплатный)</p>
+        </div>
+    </div>
 
-        <!-- Блок контактов -->
-        <section id="contact">
-            <h2 class="section-title">Связаться со мной</h2>
-            <form class="contact-form" id="feedbackForm">
-                <div class="form-group">
-                    <label for="name">Ваше имя:</label>
-                    <input type="text" id="name" required placeholder="Введите имя">
-                </div>
-                <div class="form-group">
-                    <label for="message">Сообщение:</label>
-                    <textarea id="message" rows="4" required placeholder="Ваш текст..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Отправить форму</button>
-            </form>
-        </section>
-    </main>
+    <div class="football-animation" id="ball">⚽</div>
 
-    <footer>
-        <p>© 2026 Создано своими руками в VS Code</p>
-    </footer>
+    <script>
+        const card = document.getElementById('buyTicket');
+        const ball = document.getElementById('ball');
 
-    <!-- ЛОГИКА JAVASCRIPT -->
-    <script>// 1. Логика переключения Темной / Светлой темы
-        const themeToggle = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
+        card.addEventListener('click', () => {
+            ball.style.display = 'block';
+            ball.style.animation = 'kickBall 1.2s forwards ease-in-out';
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                htmlElement.removeAttribute('data-theme');
-            } else {
-                htmlElement.setAttribute('data-theme', 'dark');
-            }
+            setTimeout(() => {
+                window.location.href = 'order.html';
+            }, 1200);
         });
-
-        // 2. Логика отправки формы
-        const form = document.getElementById('feedbackForm');
-        form.addEventListener('submit', (event) => {
-            event.preventDefault(); // Запрещаем странице перезагружаться при отправке
-            const userName = document.getElementById('name').value;
-            alert(`Спасибо, ${userName}! Ваше сообщение (симуляция) успешно отправлено.`);
-            form.reset(); // Очищаем поля формы
-        });</script>
+    </script>
 
 </body>
 </html>
+
