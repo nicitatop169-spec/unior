@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -71,16 +71,28 @@
 
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
             margin-bottom: 50px;
         }
 
-        .photo-placeholder, .club-img {
+        .club-img {
             background: #001a4d;
             border: 2px solid #0044cc;
             border-radius: 8px;
             height: 200px;
+            width: 100%;
+            object-fit: cover;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .trainer-card, .trainer-img {
+            background: #001a4d;
+            border: 2px solid #0044cc;
+            border-radius: 8px;
+            width: 100%;
+            aspect-ratio: 3 / 4;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,13 +104,12 @@
             transition: all 0.3s ease;
         }
 
-        .club-img {
-            width: 100%;
+        .trainer-img {
             object-fit: cover;
             padding: 0;
         }
 
-        .photo-placeholder:hover, .club-img:hover {
+        .club-img:hover, .trainer-card:hover, .trainer-img:hover {
             transform: translateY(-5px);
             border-color: #ffffff;
             color: #ffffff;
@@ -188,14 +199,15 @@
         <section>
             <h2 class="section-title">Наши тренеры</h2>
             <div class="photo-grid">
-                <div class="photo-placeholder">Фотография тренера 1</div>
-                <div class="photo-placeholder">Фотография тренера 2</div>
+                <div class="trainer-card">Фотография тренера 1</div>
+                <div class="trainer-card">Фотография тренера 2</div>
             </div>
         </section>
 
         <div class="footer-info">
+            <!-- ИЗМЕНЕННЫЙ ТЕКСТ ТУТ -->
             <div class="contact-row">
-                <strong>Номер телефона тренера:</strong> +7 (999) 123-45-67
+                <strong>Заказать абонемент по номеру:</strong> +7 (999) 123-45-67
             </div>
 
             <div class="contact-row">
@@ -234,5 +246,3 @@
 
 </body>
 </html>
-
- 
