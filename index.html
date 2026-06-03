@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -7,28 +7,28 @@
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #ffffff;
-            color: #1a202c;
+            background: #0033aa; /* ПЕРЕКРАСИЛИ ВЕСЬ БЕЛЫЙ ФОН В СИНbackground */
+            color: #ffffff; /* Поменяли текст на белый для читаемости */
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            border: 6px solid #0044cc; /* СИНЯЯ РАМКА вокруг всего сайта */
+            border: 6px solid #e11d48; /* Сделали внешнюю рамку красной для стиля */
             min-height: 100vh;
         }
 
         /* Кнопка "Связаться с менеджером" над заголовком */
         .top-bar {
-            background: #0052cc; /* СИНЯЯ ВЕРХНЯЯ ПАНЕЛЬ */
+            background: #002288; /* Темно-синий фон панели */
             padding: 12px 20px;
             display: flex;
             justify-content: flex-end;
-            box-shadow: 0 4px 10px rgba(0, 82, 204, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .manager-btn {
-            background: #e11d48; /* Ярко-красная кнопка на синем фоне */
+            background: #e11d48;
             color: white;
-            border: 2px solid #ffffff; /* Белая обводка для контраста */
+            border: 2px solid #ffffff;
             padding: 8px 16px;
             border-radius: 6px;
             font-weight: bold;
@@ -55,7 +55,7 @@
         .site-name {
             font-size: 26px;
             font-weight: bold;
-            color: #0052cc; /* Ярко-синий цвет */
+            color: #ffffff; /* Белый текст unior на синем фоне */
             text-transform: lowercase;
             display: inline-block;
             transition: transform 0.3s ease;
@@ -63,18 +63,18 @@
         
         .site-name:hover {
             transform: skewX(-10deg) scale(1.1);
-            color: #e11d48; /* Меняется на красный при наведении */
+            color: #e11d48;
         }
 
         /* КРАСНЫЙ БАННЕР С КРАСНОЙ ОБВОДКОЙ */
         .main-banner {
-            background: #e11d48;
-            border: 5px solid #be123c;
+            background: #e11d48; /* Красный фон заголовка */
+            border: 5px solid #be123c; /* Красная обводка оставлена */
             padding: 40px 20px;
             border-radius: 12px;
             text-align: center;
             margin-bottom: 40px;
-            box-shadow: 0 10px 25px rgba(225, 29, 72, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
         }
 
@@ -87,14 +87,14 @@
             font-size: 42px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            color: #ffffff; /* ВНУТРИ ЗАГОЛОВКА ОСТАВИЛИ ВЕЛИКОЛЕПНЫЙ БЕЛЫЙ ЦВЕТ */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .section-title {
             font-size: 24px;
-            color: #0052cc; /* СИНЯЯ ЛИНИЯ и ТЕКСТ */
-            border-left: 5px solid #0052cc;
+            color: #ffffff; /* Заголовки секций стали белыми */
+            border-left: 5px solid #e11d48; /* Линия слева стала красной */
             padding-left: 15px;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -104,8 +104,7 @@
 
         .section-title:hover {
             padding-left: 25px;
-            color: #e11d48; /* Меняется на красный */
-            border-left-color: #e11d48;
+            color: #e11d48;
             border-left-width: 8px;
         }
 
@@ -117,37 +116,36 @@
         }
 
         .photo-placeholder {
-            background: #f1f5f9;
-            border: 2px dashed #0052cc; /* СИНЯЯ ПУНКТИРНАЯ РАМКА */
+            background: #002288; /* Темно-синие карточки для фото */
+            border: 2px dashed #e11d48; /* Красная пунктирная рамка */
             border-radius: 8px;
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0052cc;
+            color: #ffffff;
             font-weight: 500;
             text-align: center;
             padding: 10px;
             transition: all 0.3s ease;
         }
 
-        /* СИНЯЯ НЕОНОВАЯ ПОДСВЕТКА при наведении */
         .photo-placeholder:hover {
             transform: translateY(-8px);
-            background: #ffffff;
-            border-color: #e11d48; /* Меняется на красный */
+            background: #001166;
+            border-color: #ffffff;
             color: #e11d48;
-            box-shadow: 0 12px 25px rgba(0, 82, 204, 0.3); /* Синее свечение */
+            box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4); /* Красное неоновое свечение */
         }
 
-        /* НИЖНЯЯ ПАНЕЛЬ С СИНЕЙ ОБВОДКОЙ */
+        /* НИЖНЯЯ ПАНЕЛЬ С СИНЕМ ФОНОМ И КРАСНОЙ ОБВОДКОЙ */
         .footer-info {
-            background: #f8fafc;
-            border: 2px solid #0052cc; /* Синий контур */
+            background: #002288;
+            border: 2px solid #e11d48;
             border-radius: 12px;
             padding: 30px;
             margin-top: 40px;
-            box-shadow: 0 5px 15px rgba(0, 82, 204, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .contact-row {
@@ -161,7 +159,7 @@
         }
 
         .contact-row strong {
-            color: #0052cc; /* Синие акценты */
+            color: #e11d48; /* Красные акценты для текста */
         }
 
         .social-buttons {
@@ -173,9 +171,9 @@
         }
 
         .copy-btn {
-            background: #ffffff;
-            border: 2px solid #0052cc; /* Синие кнопки */
-            color: #0052cc;
+            background: #0033aa;
+            border: 2px solid #e11d48;
+            color: #ffffff;
             padding: 10px 20px;
             border-radius: 8px;
             cursor: pointer;
@@ -184,9 +182,8 @@
         }
 
         .copy-btn:hover {
-            background: #e11d48; /* Кнопки взрываются красным при наведении */
-            border-color: #e11d48;
-            color: white;
+            background: #e11d48;
+            border-color: #ffffff;
             transform: scale(1.05);
         }
 
@@ -252,7 +249,7 @@
                 </div>
             </div>
 
-            <div class="contact-row" style="border-top: 2px solid #f1f5f9; padding-top: 15px;">
+            <div class="contact-row" style="border-top: 2px solid #0033aa; padding-top: 15px;">
                 <strong>Адрес клуба:</strong> г. Москва, ул. Спортивная, д. 11, комплекс «Юниор»
             </div>
         </div>
