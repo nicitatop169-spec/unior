@@ -3,43 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СК Юниор | Спортивный Клуб</title>
+    <title>СК Юниор | КИБЕР-ИНТЕРФЕЙС</title>
     <style>
+        /* SCI-FI СТИЛЬ: ТОЛЬКО СИНИЙ И БЕЛОЙ */
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #00d2ff; /* КРУТОЙ ЯРКИЙ ГОЛУБОЙ ФОН */
-            color: #0b1527; /* Темный текст для отличной читаемости на голубом */
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+            background-color: #000a22; /* Сверхглубокий космический синий */
+            color: #ffffff;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            border: 6px solid #e11d48; /* Красная внешняя рамка сайта */
+            border: 3px solid #0055ff;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Кнопка "Связаться с менеджером" над заголовком */
+        /* Эффект сетки / сканирования на фоне */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 85, 255, 0.15) 50%), linear-gradient(90deg, rgba(0, 85, 255, 0.05), rgba(0, 85, 255, 0.01), rgba(0, 85, 255, 0.05));
+            z-index: 9999;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        /* Верхняя панель управления */
         .top-bar {
-            background: #00b8e6; /* Чуть более плотный голубой для панели */
-            padding: 12px 20px;
+            background: rgba(0, 34, 136, 0.5);
+            padding: 15px 20px;
             display: flex;
             justify-content: flex-end;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #0055ff;
+            backdrop-filter: blur(5px);
         }
 
         .manager-btn {
-            background: #e11d48;
-            color: white;
-            border: 2px solid #ffffff;
-            padding: 8px 16px;
-            border-radius: 6px;
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #0055ff;
+            padding: 8px 20px;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 85, 255, 0.3);
         }
 
         .manager-btn:hover {
-            background: #be123c;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
+            background: #0055ff;
+            color: #000a22;
+            box-shadow: 0 0 20px #0055ff;
+            transform: translateY(-1px);
         }
 
         .container {
@@ -49,120 +68,115 @@
         }
 
         header {
-            padding: 15px 0;
+            padding: 10px 0;
+            border-bottom: 1px dashed #0055ff;
+            margin-bottom: 30px;
         }
 
         .site-name {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: bold;
-            color: #ffffff; /* Белое контрастное название unior */
-            text-transform: lowercase;
+            color: #0055ff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
             display: inline-block;
-            transition: transform 0.3s ease;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-        
-        .site-name:hover {
-            transform: skewX(-10deg) scale(1.1);
-            color: #e11d48;
         }
 
-        /* КРАСНЫЙ БАННЕР С КРАСНОЙ ОБВОДКОЙ */
+        /* НАУЧНО-ФАНТАСТИЧЕСКИЙ БАННЕР С СИНЕЙ ОБВОДКОЙ */
         .main-banner {
-            background: #e11d48; /* Красный фон баннера */
-            border: 5px solid #be123c; /* Темно-красная обводка сохранена */
-            padding: 40px 20px;
-            border-radius: 12px;
+            background: rgba(0, 85, 255, 0.1);
+            border: 2px solid #0055ff; /* Синяя обводка */
+            padding: 35px 20px;
             text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
+            margin-bottom: 50px;
+            position: relative;
+            box-shadow: inset 0 0 20px rgba(0, 85, 255, 0.2), 0 0 15px rgba(0, 85, 255, 0.1);
         }
 
-        .main-banner:hover {
-            transform: scale(1.02);
+        /* Угловые декоративные элементы для Sci-Fi стиля */
+        .main-banner::before, .main-banner::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 2px solid #ffffff;
         }
+        .main-banner::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+        .main-banner::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
 
         .main-banner h1 {
             margin: 0;
-            font-size: 42px;
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #ffffff; /* Белый заголовок */
+            text-shadow: 0 0 10px rgba(0, 85, 255, 0.8);
+        }
+
+        /* Секции */
+        .section-title {
+            font-size: 20px;
+            color: #ffffff;
+            border-left: 4px solid #0055ff;
+            padding-left: 15px;
+            margin-bottom: 25px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #ffffff; /* ВНУТРИ БАННЕРА ОСТАЛСЯ БЕЛЫЙ ЦВЕТ */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .section-title {
-            font-size: 24px;
-            color: #ffffff; /* Белые заголовки секций шикарно смотрятся на голубом */
-            border-left: 5px solid #e11d48; /* Красная линия слева */
-            padding-left: 15px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            display: inline-block;
-            transition: all 0.3s ease;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        .section-title:hover {
-            padding-left: 25px;
-            color: #e11d48;
-            border-left-width: 8px;
         }
 
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
             margin-bottom: 50px;
         }
 
+        /* Кибер-блоки для будущих фото */
         .photo-placeholder {
-            background: #ffffff; /* Карточки оставил белыми внутри, чтобы ваши фото потом выделялись */
-            border: 2px dashed #e11d48; /* Красный спортивный пунктир */
-            border-radius: 8px;
+            background: rgba(0, 34, 136, 0.2);
+            border: 1px solid #0033aa;
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #e11d48;
-            font-weight: 500;
+            color: #0055ff;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             text-align: center;
-            padding: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
         }
 
         .photo-placeholder:hover {
-            transform: translateY(-8px);
-            background: #e11d48;
+            transform: scale(1.03);
             border-color: #ffffff;
             color: #ffffff;
-            box-shadow: 0 12px 25px rgba(225, 29, 72, 0.4); /* Красное неоновое свечение */
+            background: rgba(0, 85, 255, 0.15);
+            box-shadow: 0 0 25px rgba(0, 85, 255, 0.4);
         }
 
-        /* НИЖНЯЯ ПАНЕЛЬ С СИНЕ-ГОЛУБЫМ КОНТРАСТОМ */
+        /* Панель контактов в стиле терминала */
         .footer-info {
-            background: #ffffff;
-            border: 3px solid #e11d48; /* Мощный красный контур */
-            border-radius: 12px;
+            background: rgba(0, 10, 34, 0.8);
+            border: 2px solid #0055ff;
             padding: 30px;
-            margin-top: 40px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            box-shadow: inset 0 0 15px rgba(0, 85, 255, 0.2);
         }
 
         .contact-row {
-            margin-bottom: 15px;
-            font-size: 16px;
-            transition: all 0.2s ease;
-        }
-
-        .contact-row:hover {
-            transform: translateX(5px);
+            margin-bottom: 20px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border-bottom: 1px rgba(0, 85, 255, 0.2) solid;
+            padding-bottom: 10px;
         }
 
         .contact-row strong {
-            color: #e11d48; /* Красные акценты */
+            color: #0055ff;
+            text-transform: uppercase;
         }
 
         .social-buttons {
@@ -170,101 +184,109 @@
             gap: 15px;
             flex-wrap: wrap;
             margin-top: 15px;
-            margin-bottom: 20px;
         }
 
+        /* Высокотехнологичные кнопки */
         .copy-btn {
-            background: #00d2ff; /* Кнопки тоже голубые в цвет фона */
-            border: 2px solid #e11d48;
-            color: #0b1527;
-            padding: 10px 20px;
-            border-radius: 8px;
+            background: transparent;
+            border: 1px solid #0055ff;
+            color: #ffffff;
+            padding: 10px 24px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: inherit;
             transition: all 0.3s ease;
         }
 
         .copy-btn:hover {
-            background: #e11d48;
-            border-color: #e11d48;
-            color: white;
-            transform: scale(1.05);
+            background: rgba(0, 85, 255, 0.2);
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 85, 255, 0.5);
         }
 
-        /* Всплывающее уведомление */
+        /* Системное уведомление */
         .toast {
             display: none;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #e11d48;
-            color: white;
+            bottom: 25px;
+            right: 25px;
+            background: #0055ff;
+            color: #000a22;
             padding: 12px 24px;
-            border-radius: 8px;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(225, 29, 72, 0.3);
-            z-index: 1000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(0, 85, 255, 0.6);
+            z-index: 10000;
         }
     </style>
 </head>
 <body>
 
+    <!-- ВЕРХНЯЯ СИСТЕМА УПРАВЛЕНИЯ -->
     <div class="top-bar">
-        <button class="manager-btn" id="managerBtn">Связаться с менеджером</button>
+        <button class="manager-btn" id="managerBtn">[ СВЯЗЬ С МЕНЕДЖЕРОМ ]</button>
     </div>
 
     <div class="container">
         
         <header>
-            <div class="site-name">unior</div>
+            <div class="site-name">// unior.sys</div>
         </header>
 
+        <!-- БАННЕР С СИНЕЙ ОБВОДКОЙ И БЕЛЫМ ТЕКСТОМ -->
         <div class="main-banner">
             <h1>спортивный клуб юниор</h1>
         </div>
 
+        <!-- МОДУЛЬ: ГАЛЕРЕЯ КЛУБА -->
         <section>
-            <h2 class="section-title">Фотографии клуба</h2>
+            <h2 class="section-title">> ДАННЫЕ_КЛУБА // ФОТОГРАФИИ</h2>
             <div class="photo-grid">
-                <div class="photo-placeholder">Место для фото клуба №1</div>
-                <div class="photo-placeholder">Место для фото клуба №2</div>
-                <div class="photo-placeholder">Место для фото клуба №3</div>
+                <div class="photo-placeholder">[ СЛОТ_01: ОБЪЕКТ ПОДГОТОВКИ ]</div>
+                <div class="photo-placeholder">[ СЛОТ_02: ТРЕНИРОВОЧНАЯ ЗОНА ]</div>
+                <div class="photo-placeholder">[ СЛОТ_03: ИГРОВОЕ ПОЛЕ ]</div>
             </div>
         </section>
 
+        <!-- МОДУЛЬ: ПЕРСОНАЛ -->
         <section>
-            <h2 class="section-title">Наши тренеры</h2>
+            <h2 class="section-title">> РЕЕСТР_ТРЕНЕРОВ // СОСТАВ</h2>
             <div class="photo-grid">
-                <div class="photo-placeholder">Фото тренера №1</div>
-                <div class="photo-placeholder">Фото тренера №2</div>
+                <div class="photo-placeholder">[ ПРОФИЛЬ: ТРЕНЕР_01 ]</div>
+                <div class="photo-placeholder">[ ПРОФИЛЬ: ТРЕНЕР_02 ]</div>
             </div>
         </section>
 
+        <!-- ИНФОРМАЦИОННЫЙ ТЕРМИНАЛ -->
         <div class="footer-info">
             <div class="contact-row">
-                <strong>Номер телефона тренера:</strong> +7 (999) 123-45-67
+                <strong>[ СВЯЗЬ_ТРЕНЕР ]:</strong> +7 (999) 123-45-67
             </div>
 
             <div class="contact-row">
-                <strong>Наши соцсети (нажмите для копирования):</strong>
+                <strong>[ СЕТЕВЫЕ_ПРОТОКОЛЫ ] (КЛИК ДЛЯ КОПИРОВАНИЯ):</strong>
                 <div class="social-buttons">
                     <button class="copy-btn" data-copy="https://vk.com">ВКонтакте</button>
                     <button class="copy-btn" data-copy="@unior_telegram">Telegram</button>
                 </div>
             </div>
 
-            <div class="contact-row" style="border-top: 2px solid #f1f5f9; padding-top: 15px;">
-                <strong>Адрес клуба:</strong> г. Москва, ул. Спортивная, д. 11, комплекс «Юниор»
+            <div class="contact-row" style="border: none; margin: 0; padding: 0;">
+                <strong>[ ЛОКАЦИЯ_БАЗЫ ]:</strong> г. Москва, ул. Спортивная, д. 11, комплекс «Юниор»
             </div>
         </div>
 
     </div>
 
-    <div class="toast" id="toast">Ссылка скопирована в буфер обмена!</div>
+    <!-- СИСТЕМНОЕ ОКНО -->
+    <div class="toast" id="toast">СТАТУС: ДАННЫЕ СКОПИРОВАНЫ</div>
 
     <script>
         document.getElementById('managerBtn').addEventListener('click', () => {
-            alert('Вызов менеджера: Оставьте ваши контакты.');
+            alert('СИСТЕМА: Запрос отправлен менеджеру. Ожидайте соединения.');
         });
 
         const copyButtons = document.querySelectorAll('.copy-btn');
@@ -285,4 +307,3 @@
 
 </body>
 </html>
-
