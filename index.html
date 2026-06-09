@@ -3,426 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СК Юниор | Спортивный Клуб</title>
-    <!-- Подключаем фирменный узкий футбольный шрифт -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>ЮНИОРЫ — Футбольный клуб</title>
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* Сброс отступов */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        html {
+            scroll-behavior: smooth;
         }
-
         body {
-            font-family: 'Oswald', 'Segoe UI', Arial, sans-serif;
-            background-color: #1a222d; /* Графитовый серый фон */
-            color: #ffffff;
-            min-height: 100vh;
-            /* Текстура фирменных ромбов сайта Краснодара */
-            background-image: 
-                linear-gradient(30deg, #242f3e 12%, transparent 12.5%, transparent 87%, #242f3e 87.5%, #242f3e),
-                linear-gradient(150deg, #242f3e 12%, transparent 12.5%, transparent 87%, #242f3e 87.5%, #242f3e),
-                linear-gradient(30deg, #242f3e 12%, transparent 12.5%, transparent 87%, #242f3e 87.5%, #242f3e),
-                linear-gradient(150deg, #242f3e 12%, transparent 12.5%, transparent 87%, #242f3e 87.5%, #242f3e),
-                linear-gradient(60deg, rgba(36,47,62,0.5) 25%, transparent 25.5%, transparent 75%, rgba(36,47,62,0.5) 75.5%, rgba(36,47,62,0.5)),
-                linear-gradient(60deg, rgba(36,47,62,0.5) 25%, transparent 25.5%, transparent 75%, rgba(36,47,62,0.5) 75.5%, rgba(36,47,62,0.5));
-            background-size: 40px 70px;
-            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f4f8;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        /* ШАПКА: КНОПКИ В СТРОГОМ ПОРЯДКЕ */
-        header {
-            padding: 25px 0;
-            border-bottom: 1px solid rgba(0, 162, 255, 0.3);
-            margin-bottom: 40px;
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;
-        }
-
-        .site-name {
-            font-size: 20px;
-            font-weight: 800;
-            color: #00a2ff; 
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-
-        /* Блок навигации */
-        .top-nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        /* Кнопка "О клубе" идет первой */
-        .nav-btn {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            padding: 12px 24px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #ffffff;
-        }
-
-        /* Кнопка информации */
-        .info-btn-top {
-            background: #00a2ff; 
-            border: 1px solid #00a2ff;
-            color: #ffffff;
-            padding: 12px 28px; 
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 13px; 
-            letter-spacing: 1.5px;
-            text-decoration: none; 
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0, 162, 255, 0.3);
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .info-btn-top:hover {
+        ::-webkit-scrollbar-track {
             background: #ffffff;
-            color: #1a222d;
-            border-color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e11d48;
+            border-radius: 4px;
         }
 
-        /* СВЕТЛЫЙ КИНЕМАТОГРАФИЧЕСКИЙ БАННЕР С ЭФФЕКТОМ РАЗМЫТИЯ */
-        .main-banner {
+        /* Hero Background Pattern */
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             position: relative;
-            background: rgba(26, 34, 45, 0.5); 
-            backdrop-filter: blur(25px); 
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(0, 162, 255, 0.4); 
-            padding: 85px 20px;
-            text-align: center;
-            margin-bottom: 60px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-        }
-
-        .main-banner::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #00a2ff, transparent);
-        }
-
-        /* КРАСНЫЙ ЗАГОЛОВОК ЮНИОР */
-        .main-banner h1 {
-            margin: 0;
-            font-size: 75px;
-            text-transform: uppercase;
-            letter-spacing: 14px;
-            font-weight: 900;
-            color: #ff0000; 
-            text-shadow: 0 0 25px rgba(255, 0, 0, 0.9), 
-                         0 0 50px rgba(255, 0, 0, 0.5);
-        }
-
-        /* Заголовки секций */
-        .section-title {
-            font-size: 24px;
-            color: #ffffff;
-            margin-bottom: 35px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 800;
         }
         
-        .section-title::after {
+        .hero-bg::before {
             content: '';
-            display: block;
-            width: 45px;
-            height: 3px;
-            background: #00a2ff; 
-            margin-top: 10px;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 80%, rgba(225, 29, 72, 0.1) 0%, transparent 20%);
+            pointer-events: none;
         }
 
-        /* СЕТКА ФОТОГРАФИЙ (УВЕЛИЧЕНА) */
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Уменьшил minmax для вместимости большего кол-ва фото */
-            gap: 2px;
-            background: rgba(0, 162, 255, 0.3); 
-            padding: 2px;
-            margin-bottom: 60px;
+        /* Diagonal Cut Effect */
+        .diagonal-cut {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         }
 
-        .club-img {
-            height: 250px; /* Чуть меньше высота чтобы влезло больше */
-            width: 100%;
-            object-fit: cover;
-            display: block;
-            filter: brightness(0.95); 
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        /* Text Stroke for Title */
+        .text-stroke {
+            -webkit-text-stroke: 2px rgba(255,255,255,0.1);
+            color: transparent;
         }
 
-        .trainer-card {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 3 / 4;
-            display: flex;
-            align-items: flex-end; 
-            justify-content: center;
-            color: #ffffff;
-            font-weight: 700;
-            text-align: center;
-            padding: 25px 15px;
-            box-sizing: border-box;
-            text-transform: uppercase;
-            font-size: 16px; /* Чуть крупнее имя */
-            letter-spacing: 2px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            background: linear-gradient(to top, #1a222d 25%, rgba(36, 47, 62, 0.6));
-            border: 1px solid rgba(0, 162, 255, 0.2);
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
         }
 
-        .club-img:hover {
-            filter: brightness(1.15);
-            transform: scale(1.02);
-            z-index: 5;
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-in-up {
+            animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .trainer-card:hover {
-            background: linear-gradient(to top, #00a2ff 15%, #1a222d); 
-            color: #ffffff;
-            transform: scale(1.02);
-            z-index: 5;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
 
-        /* Секция тренеров */
-        .trainers-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .trainer-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0;
-            margin-bottom: 0;
-            filter: grayscale(20%);
-            transition: 0.3s;
-        }
-
-        .trainer-card:hover .trainer-photo {
-            filter: grayscale(0%);
-        }
-
-        /* ФУТЕР */
-        .footer-info {
-            background: #242f3e; 
-            border-top: 3px solid #00a2ff;
-            padding: 45px;
-            margin-top: 60px;
-            margin-bottom: 40px;
-            box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.15);
-            text-align: center;
-        }
-
-        .contact-row {
-            margin-bottom: 25px;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #cbd5e0; 
-        }
-
-        .contact-row strong {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 12px;
-            color: #00a2ff; 
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 25px;
-        }
-
-        .copy-btn {
-            background: transparent;
-            border: 1px solid rgba(0, 162, 255, 0.5);
-            color: #ffffff;
-            padding: 12px 30px;
-            cursor: pointer;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 2px;
+        /* Button Hover Effects */
+        .btn-primary {
             transition: all 0.3s ease;
-            min-width: 160px;
+            box-shadow: 0 4px 14px 0 rgba(225, 29, 72, 0.39);
         }
-
-        .copy-btn:hover {
-            background: #ffffff;
-            color: #1a222d;
-            border-color: #ffffff;
+        .btn-primary:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(225, 29, 72, 0.23);
         }
 
-        /* Уведомление о копировании */
-        .toast {
-            display: none;
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #00a2ff;
-            color: #ffffff;
-            padding: 15px 30px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 1px;
-            z-index: 10000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            animation: slideIn 0.3s ease-out;
+        /* Gallery hover */
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .gallery-item img {
+            transition: transform 0.6s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
         }
 
-        @keyframes slideIn {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        /* Coach card hover */
+        .coach-card {
+            transition: all 0.4s ease;
         }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .main-banner h1 {
-                font-size: 40px;
-                letter-spacing: 5px;
-            }
+        .coach-card:hover {
+            transform: translateY(-12px);
+        }
+        .coach-card:hover .coach-img {
+            transform: scale(1.05);
+        }
+        .coach-img {
+            transition: transform 0.6s ease;
         }
     </style>
 </head>
-<body>
+<body class="antialiased text-slate-800">
 
-    <div class="container">
-        
-        <header>
-            <div class="site-name">unior fC</div>
-            <div class="top-nav">
-                <button class="nav-btn">О клубе</button>
-                <a href="tel:+79991234567" class="info-btn-top">Узнать информацию по номеру</a>
-            </div>
-        </header>
-
-        <!-- Главный баннер с кино-размытием -->
-        <div class="main-banner">
-            <h1>юниор</h1>
-        </div>
-
-        <section>
-            <h2 class="section-title">Фотографии клуба</h2>
-            <!-- Добавлено больше фотографий -->
-            <div class="photo-grid">
-                <img src="https://placehold.co/600x400/1a222d/FFF?text=Match+Day" alt="Фото клуба 1" class="club-img">
-                <img src="https://placehold.co/600x400/1a222d/FFF?text=Training" alt="Фото клуба 2" class="club-img">
-                <img src="https://placehold.co/600x400/1a222d/FFF?text=Victory" alt="Фото клуба 3" class="club-img">
-                <img src="https://placehold.co/600x400/1a222d/FFF?text=Team" alt="Фото клуба 4" class="club-img">
-                <img src="https://placehold.co/600x400/1a222d/FFF?text=Away+Game" alt="Фото клуба 5" class="club-img">
-                <img src="https://placehold.co/600x400/1a222d/FFF?text=Stadium" alt="Фото клуба 6" class="club-img">
-                <img src="https://placehold.co/600x400/1a222d/FFF?text=Fans" alt="Фото клуба 7" class="club-img">
-                <img src="https://placehold.co/600x400/1a222d/FFF?text=Trophy" alt="Фото клуба 8" class="club-img">
-            </div>
-        </section>
-
-        <!-- СЕКЦИЯ ТРЕНЕРОВ -->
-        <section>
-            <h2 class="section-title">Тренерский штаб</h2>
-            <div class="trainers-section">
-                
-                <!-- Тренер 1: Руслан Атаев -->
-                <div class="trainer-card">
-                    <img src="https://placehold.co/400x500/242f3e/FFF?text=Ruslan+Ataev" alt="Руслан Атаев" class="trainer-photo" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1;">
-                    <div style="background: rgba(0,0,0,0.7); width: 100%; padding: 15px;">
-                        Руслан Атаев
-                    </div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+                    <img src="ava.png" alt="Логотип ЮНИОРЫ" class="h-12 w-12 rounded-full object-cover shadow-lg border-2 border-blue-900 group-hover:border-red-600 transition-colors duration-300">
+                    <span class="font-bold text-2xl tracking-tighter text-blue-900">ЮНИОРЫ<span class="text-red-600">.</span></span>
                 </div>
 
-                <!-- Тренер 2: Дмитрий Меньшиков -->
-                <div class="trainer-card">
-                    <img src="https://placehold.co/400x500/242f3e/FFF?text=Dmitry+Menshikov" alt="Дмитрий Меньшиков" class="trainer-photo" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1;">
-                    <div style="background: rgba(0,0,0,0.7); width: 100%; padding: 15px;">
-                        Дмитрий Меньшиков
-                    </div>
+                <!-- Center: Coaches button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#coaches" class="bg-blue-900 text-white px-6 py-2.5 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-red-600 transition-all shadow-lg hover:shadow-red-500/30">
+                        Тренеры
+                    </a>
                 </div>
 
-            </div>
-        </section>
+                <!-- Phone Info (right side) -->
+                <div class="hidden md:flex items-center gap-3">
+                    <i class="fas fa-phone-alt text-red-600"></i>
+                    <span class="text-slate-700 font-semibold text-sm">
+                        Узнать информацию по номеру: <span class="text-blue-900 font-bold">+7 (999) 123-45-67</span>
+                    </span>
+                </div>
 
-        <!-- ФУТЕР С СОЦСЕТЯМИ -->
-        <div class="footer-info">
-            <div class="contact-row">
-                <strong>Адрес клуба</strong>
-                г. Москва, ул. Спортивная, д. 10
-            </div>
-            
-            <div class="contact-row">
-                <strong>Наши социальные сети</strong>
-                <p style="font-size: 11px; margin-bottom: 15px; opacity: 0.7;">Нажмите на кнопку, чтобы скопировать ссылку</p>
-                
-                <div class="social-buttons">
-                    <button class="copy-btn" onclick="copyToClipboard('https://vk.com/fc_unior')">VKontakte</button>
-                    <button class="copy-btn" onclick="copyToClipboard('https://t.me/fc_unior_channel')">Telegram</button>
-                    <button class="copy-btn" onclick="copyToClipboard('https://instagram.com/fc_unior_official')">Instagram</button>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-3">
+                    <a href="#coaches" class="bg-blue-900 text-white px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider">
+                        Тренеры
+                    </a>
+                    <button class="text-slate-600 hover:text-blue-900 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
+    </nav>
 
-    </div>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 hero-bg diagonal-cut min-h-[85vh] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div class="text-center lg:text-left slide-in-up">
+                    <div class="inline-block px-4 py-1 bg-blue-800/50 border border-blue-700 rounded-full mb-6 backdrop-blur-sm">
+                        <span class="text-blue-200 text-xs font-bold uppercase tracking-widest">Официальный сайт клуба</span>
+                    </div>
+                    
+                    <h1 class="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-100 drop-shadow-2xl">
+                        БУДУЩИЕ<br>ЧЕМПИОНЫ
+                    </h1>
+                    
+                    <!-- Big Red Title -->
+                    <div class="my-4 transform -rotate-1 origin-left">
+                        <h2 class="text-7xl md:text-9xl lg:text-[10rem] font-black text-red-600 leading-none tracking-tighter drop-shadow-[0_10px_20px_rgba(220,38,38,0.5)] animate-float">
+                            ЮНИОРЫ
+                        </h2>
+                    </div>
 
-    <!-- Уведомление -->
-    <div id="toast" class="toast">Ссылка скопирована!</div>
+                    <p class="text-blue-100 text-lg md:text-xl max-w-lg mx-auto lg:mx-0 mb-8 font-medium leading-relaxed opacity-90">
+                        Футбольный клуб от 5 лет. Воспитываем чемпионов.
+                    </p>
+                </div>
+
+                <!-- Visual/Image -->
+                <div class="relative hidden lg:block slide-in-up delay-200">
+                    <!-- Abstract shapes behind image -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-600/20 rounded-full blur-3xl"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border-2 border-dashed border-white/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+                    
+                    <!-- Main Image Container -->
+                    <div class="relative z-10 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <img src="x1.png" 
+                             alt="Юные футболисты клуба ЮНИОРЫ" 
+                             class="rounded-2xl shadow-2xl border-4 border-white/10 object-cover h-[600px] w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (6 photos) -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h3 class="text-red-600 font-bold uppercase tracking-widest mb-2">Наши программы</h3>
+                    <h2 class="text-4xl font-black text-slate-900">Выбери свой путь</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item shadow-lg">
+                    <img src="z1.png" alt="Тренировка 1" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item shadow-lg">
+                    <img src="z2.png" alt="Тренировка 2" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item shadow-lg">
+                    <img src="z3.png" alt="Тренировка 3" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item shadow-lg">
+                    <img src="z4.png" alt="Тренировка 4" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item shadow-lg">
+                    <img src="z5.png" alt="Тренировка 5" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item shadow-lg">
+                    <img src="z6.png" alt="Тренировка 6" class="w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaches Section -->
+    <section id="coaches" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h3 class="text-red-600 font-bold uppercase tracking-widest mb-3">Профессиональная команда</h3>
+                <h2 class="text-4xl md:text-6xl font-black text-slate-900">Наши тренеры</h2>
+                <div class="w-24 h-1.5 bg-red-600 mx-auto mt-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                <!-- Coach 1: Руслан Атаев -->
+                <div class="coach-card flex flex-col items-center">
+                    <div class="relative w-full max-w-md mx-auto">
+                        <div class="absolute -inset-4 bg-gradient-to-br from-blue-900 to-red-600 rounded-2xl blur-lg opacity-30"></div>
+                        <div class="relative overflow-hidden rounded-2xl shadow-2xl border-4 border-white bg-slate-100">
+                            <img src="t1.png" alt="Руслан Атаев" class="coach-img w-full h-[500px] object-cover object-top">
+                        </div>
+                    </div>
+                    <h3 class="mt-8 text-3xl md:text-4xl font-black text-slate-900 tracking-tight text-center">Руслан Атаев</h3>
+                </div>
+
+                <!-- Coach 2: Дмитрий Меньшиков -->
+                <div class="coach-card flex flex-col items-center">
+                    <div class="relative w-full max-w-md mx-auto">
+                        <div class="absolute -inset-4 bg-gradient-to-br from-blue-900 to-red-600 rounded-2xl blur-lg opacity-30"></div>
+                        <div class="relative overflow-hidden rounded-2xl shadow-2xl border-4 border-white bg-slate-100">
+                            <img src="t2.png" alt="Дмитрий Меньшиков" class="coach-img w-full h-[500px] object-cover object-top">
+                        </div>
+                    </div>
+                    <h3 class="mt-8 text-3xl md:text-4xl font-black text-slate-900 tracking-tight text-center">Дмитрий Меньшиков</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Strip -->
+    <section class="bg-blue-900 py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase italic">Готов стать частью команды?</h2>
+            <p class="text-red-500 text-3xl md:text-5xl font-black uppercase italic mb-2 drop-shadow-lg">
+                Первая тренировка бесплатно
+            </p>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="ava.png" alt="Логотип ЮНИОРЫ" class="h-12 w-12 rounded-full object-cover border-2 border-red-600">
+                    <span class="text-white font-bold text-xl">ЮНИОРЫ FC</span>
+                </div>
+                <p class="text-sm max-w-xs">Детский футбольный клуб. Воспитываем чемпионов с любовью к игре.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Навигация</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-red-500 transition-colors">О клубе</a></li>
+                    <li><a href="#coaches" class="hover:text-red-500 transition-colors">Тренеры</a></li>
+                    <li><a href="#" class="hover:text-red-500 transition-colors">Расписание</a></li>
+                    <li><a href="#" class="hover:text-red-500 transition-colors">Контакты</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Соцсети</h4>
+                <div class="flex gap-4">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-800 text-center text-xs">
+            &copy; 2026 ЮНИОРЫ Football Club. Все права защищены.
+        </div>
+    </footer>
 
     <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(function() {
-                const toast = document.getElementById('toast');
-                toast.style.display = 'block';
-                
-                // Скрыть через 2 секунды
-                setTimeout(() => {
-                    toast.style.display = 'none';
-                }, 2000);
-            }, function(err) {
-                console.error('Ошибка копирования: ', err);
-            });
-        }
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.replace('h-20', 'h-16');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.replace('h-16', 'h-20');
+            }
+        });
     </script>
 </body>
 </html>
