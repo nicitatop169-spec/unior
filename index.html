@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СК Юниор | Спортивный Клуб</title>
     <style>
+        /* Фирменная палитра ФК Краснодар */
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #002266;
+            background-color: #070a08; /* Глубокий черно-зеленый базовый фон */
             color: #ffffff;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            border: 3px solid #0066ff;
+            border: 4px solid #0f1611; /* Строгая темная рамка по периметру сайта */
             min-height: 100vh;
         }
 
@@ -28,48 +29,51 @@
         }
 
         .site-name {
-            font-size: 24px;
-            font-weight: bold;
-            color: #0088ff;
-            letter-spacing: 1px;
+            font-size: 22px;
+            font-weight: 900;
+            color: #2ecc71; /* Фирменный ярко-зеленый акцент */
+            letter-spacing: 2px;
             display: inline-block;
+            text-transform: uppercase;
         }
 
-        /* КИНОШНЫЙ БАННЕР С ЭФФЕКТОМ РАЗМЫТИЯ ПОЗАДИ */
+        /* КИНОШНЫЙ БАННЕР С ЭФФЕКТОМ РАЗМЫТИЯ И ТЕМНО-ЗЕЛЕНЫМ ОТТЕНКОМ */
         .main-banner {
-            background: rgba(0, 26, 77, 0.6); /* Полупрозрачный фон для работы размытия */
-            backdrop-filter: blur(15px); /* Эффект киношного размытия заднего плана */
+            background: rgba(15, 22, 17, 0.6); /* Полупрозрачная подложка */
+            backdrop-filter: blur(15px); /* Киношное размытие заднего фона */
             -webkit-backdrop-filter: blur(15px);
-            border: 3px solid #ff0000; /* Изменил рамку на красную под цвет нового стиля */
-            padding: 40px 20px;
-            border-radius: 12px;
+            border: 2px solid #2ecc71; /* Тонкая зеленая рамка в стиле Краснодара */
+            padding: 50px 20px;
+            border-radius: 4px; /* Строгие, почти прямые углы */
             text-align: center;
             margin-bottom: 50px;
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease;
         }
 
-        /* ОБНОВЛЕННЫЙ КРАСНЫЙ ЗАГОЛОВОК ЮНИОР */
+        /* КРАСНЫЙ КИНЕМАТОГРАФИЧЕСКИЙ ЗАГОЛОВОК ЮНИОР */
         .main-banner h1 {
             margin: 0;
-            font-size: 46px; /* Чуть увеличил размер, так как текста стало меньше */
+            font-size: 52px;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #ff0000; /* Ярко-красный цвет */
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* Красное кинематографичное свечение */
+            letter-spacing: 5px;
+            font-weight: 900;
+            color: #ff0000; /* Чистый ярко-красный цвет */
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.7); /* Эффект свечения */
         }
 
         .section-title {
-            font-size: 22px;
+            font-size: 18px;
             color: #ffffff;
-            border-left: 5px solid #0066ff;
+            border-left: 4px solid #2ecc71; /* Зеленый маркер секции */
             padding-left: 15px;
             margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: 700;
         }
 
-        /* УНИВЕРСАЛЬНАЯ СЕТКА ДЛЯ ОТОБРАЖЕНИЯ ФОТО */
+        /* СЕТКА ДЛЯ ФОТО И КАРТОЧЕК */
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -77,10 +81,11 @@
             margin-bottom: 50px;
         }
 
+        /* Минималистичные карточки в стиле fckrasnodar.ru */
         .club-img {
-            background: #001a4d;
-            border: 2px solid #0044cc;
-            border-radius: 8px;
+            background: #0f1611;
+            border: 1px solid #1b261e;
+            border-radius: 4px;
             height: 200px;
             width: 100%;
             object-fit: cover;
@@ -89,48 +94,54 @@
         }
 
         .trainer-card {
-            background: #001a4d;
-            border: 2px solid #0044cc;
-            border-radius: 8px;
+            background: #0f1611;
+            border: 1px solid #1b261e;
+            border-radius: 4px;
             width: 100%;
             aspect-ratio: 3 / 4;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0088ff;
-            font-weight: 500;
+            color: #a5b1a9;
+            font-weight: bold;
             text-align: center;
             padding: 15px;
             box-sizing: border-box;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
         }
 
+        /* Стильный белый кант и зеленая тень при наведении */
         .club-img:hover, .trainer-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             border-color: #ffffff;
             color: #ffffff;
-            background: #002266;
-            box-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
+            background: #141e17;
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.25);
         }
 
+        /* Футер */
         .footer-info {
-            background: #001a4d;
-            border: 2px solid #0066ff;
-            border-radius: 12px;
+            background: #0f1611;
+            border: 1px solid #1b261e;
+            border-radius: 4px;
             padding: 30px;
             margin-top: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
         .contact-row {
             margin-bottom: 20px;
-            font-size: 16px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(0, 102, 255, 0.2);
+            font-size: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(46, 204, 113, 0.1);
         }
 
         .contact-row strong {
-            color: #0088ff;
+            color: #2ecc71; /* Зеленый текст для акцентов */
+            letter-spacing: 0.5px;
         }
 
         .social-buttons {
@@ -140,33 +151,41 @@
             margin-top: 15px;
         }
 
+        /* Кнопки копирования */
         .copy-btn {
-            background: #002266;
-            border: 1px solid #0066ff;
+            background: #141e17;
+            border: 1px solid #2ecc71;
             color: #ffffff;
             padding: 10px 24px;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
         }
 
         .copy-btn:hover {
-            background: #0066ff;
-            box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+            background: #2ecc71;
+            color: #070a08; /* При наведении текст становится темным */
+            box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
         }
 
+        /* Всплывающее уведомление */
         .toast {
             display: none;
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background: #0066ff;
-            color: #001a4d;
+            background: #2ecc71;
+            color: #070a08;
             padding: 12px 24px;
-            border-radius: 6px;
+            border-radius: 4px;
             font-weight: bold;
-            box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+            text-transform: uppercase;
+            font-size: 12px;
+            box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);
             z-index: 10000;
         }
     </style>
@@ -179,12 +198,11 @@
             <div class="site-name">unior</div>
         </header>
 
-        <!-- Измененный баннер с эффектом блюра -->
+        <!-- Размытый баннер в стиле Краснодара с красным «ЮНИОР» -->
         <div class="main-banner">
             <h1>юниор</h1>
         </div>
 
-        <!-- ТЕПЕРЬ ТУТ ПРОСТО 6 ФОТОГРАФИЙ ПОДРЯД -->
         <section>
             <h2 class="section-title">Фотографии клуба</h2>
             <div class="photo-grid">
