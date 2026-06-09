@@ -4,189 +4,328 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>СК Юниор | Спортивный Клуб</title>
+    <!-- Подключаем фирменный узкий футбольный шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Фирменная палитра ФК Краснодар */
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #070a08; /* Глубокий черно-зеленый базовый фон */
-            color: #ffffff;
+        /* Сброс отступов */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            border: 4px solid #0f1611; /* Строгая темная рамка по периметру сайта */
+        }
+
+        body {
+            font-family: 'Oswald', 'Segoe UI', Arial, sans-serif;
+            background-color: #1a222d; /* Графитовый серый фон */
+            color: #ffffff;
             min-height: 100vh;
+            /* Текстура фирменных ромбов сайта Краснодара */
+            background-image: 
+                linear-gradient(30deg, #242f3e 12%, transparent 12.5%, transparent 87%, #242f3e 87.5%, #242f3e),
+                linear-gradient(150deg, #242f3e 12%, transparent 12.5%, transparent 87%, #242f3e 87.5%, #242f3e),
+                linear-gradient(30deg, #242f3e 12%, transparent 12.5%, transparent 87%, #242f3e 87.5%, #242f3e),
+                linear-gradient(150deg, #242f3e 12%, transparent 12.5%, transparent 87%, #242f3e 87.5%, #242f3e),
+                linear-gradient(60deg, rgba(36,47,62,0.5) 25%, transparent 25.5%, transparent 75%, rgba(36,47,62,0.5) 75.5%, rgba(36,47,62,0.5)),
+                linear-gradient(60deg, rgba(36,47,62,0.5) 25%, transparent 25.5%, transparent 75%, rgba(36,47,62,0.5) 75.5%, rgba(36,47,62,0.5));
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 30px;
         }
 
+        /* ШАПКА: КНОПКИ В СТРОГОМ ПОРЯДКЕ */
         header {
-            padding: 20px 0;
-            margin-bottom: 20px;
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(0, 162, 255, 0.3);
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
         }
 
         .site-name {
-            font-size: 22px;
-            font-weight: 900;
-            color: #2ecc71; /* Фирменный ярко-зеленый акцент */
-            letter-spacing: 2px;
-            display: inline-block;
+            font-size: 20px;
+            font-weight: 800;
+            color: #00a2ff; 
+            letter-spacing: 5px;
             text-transform: uppercase;
         }
 
-        /* КИНОШНЫЙ БАННЕР С ЭФФЕКТОМ РАЗМЫТИЯ И ТЕМНО-ЗЕЛЕНЫМ ОТТЕНКОМ */
-        .main-banner {
-            background: rgba(15, 22, 17, 0.6); /* Полупрозрачная подложка */
-            backdrop-filter: blur(15px); /* Киношное размытие заднего фона */
-            -webkit-backdrop-filter: blur(15px);
-            border: 2px solid #2ecc71; /* Тонкая зеленая рамка в стиле Краснодара */
-            padding: 50px 20px;
-            border-radius: 4px; /* Строгие, почти прямые углы */
-            text-align: center;
-            margin-bottom: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+        /* Блок навигации */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
-        /* КРАСНЫЙ КИНЕМАТОГРАФИЧЕСКИЙ ЗАГОЛОВОК ЮНИОР */
+        /* Кнопка "О клубе" идет первой */
+        .nav-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 12px 24px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+        }
+
+        /* Кнопка информации */
+        .info-btn-top {
+            background: #00a2ff; 
+            border: 1px solid #00a2ff;
+            color: #ffffff;
+            padding: 12px 28px; 
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px; 
+            letter-spacing: 1.5px;
+            text-decoration: none; 
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 162, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .info-btn-top:hover {
+            background: #ffffff;
+            color: #1a222d;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        /* СВЕТЛЫЙ КИНЕМАТОГРАФИЧЕСКИЙ БАННЕР С ЭФФЕКТОМ РАЗМЫТИЯ */
+        .main-banner {
+            position: relative;
+            background: rgba(26, 34, 45, 0.5); 
+            backdrop-filter: blur(25px); 
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(0, 162, 255, 0.4); 
+            padding: 85px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .main-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00a2ff, transparent);
+        }
+
+        /* КРАСНЫЙ ЗАГОЛОВОК ЮНИОР */
         .main-banner h1 {
             margin: 0;
-            font-size: 52px;
+            font-size: 75px;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 14px;
             font-weight: 900;
-            color: #ff0000; /* Чистый ярко-красный цвет */
-            text-shadow: 0 0 20px rgba(255, 0, 0, 0.7); /* Эффект свечения */
+            color: #ff0000; 
+            text-shadow: 0 0 25px rgba(255, 0, 0, 0.9), 
+                         0 0 50px rgba(255, 0, 0, 0.5);
         }
 
+        /* Заголовки секций */
         .section-title {
-            font-size: 18px;
+            font-size: 24px;
             color: #ffffff;
-            border-left: 4px solid #2ecc71; /* Зеленый маркер секции */
-            padding-left: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
+            letter-spacing: 4px;
+            font-weight: 800;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 45px;
+            height: 3px;
+            background: #00a2ff; 
+            margin-top: 10px;
         }
 
-        /* СЕТКА ДЛЯ ФОТО И КАРТОЧЕК */
+        /* СЕТКА ФОТОГРАФИЙ (УВЕЛИЧЕНА) */
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Уменьшил minmax для вместимости большего кол-ва фото */
+            gap: 2px;
+            background: rgba(0, 162, 255, 0.3); 
+            padding: 2px;
+            margin-bottom: 60px;
         }
 
-        /* Минималистичные карточки в стиле fckrasnodar.ru */
         .club-img {
-            background: #0f1611;
-            border: 1px solid #1b261e;
-            border-radius: 4px;
-            height: 200px;
+            height: 250px; /* Чуть меньше высота чтобы влезло больше */
             width: 100%;
             object-fit: cover;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
+            display: block;
+            filter: brightness(0.95); 
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .trainer-card {
-            background: #0f1611;
-            border: 1px solid #1b261e;
-            border-radius: 4px;
+            position: relative;
             width: 100%;
             aspect-ratio: 3 / 4;
             display: flex;
-            align-items: center;
+            align-items: flex-end; 
             justify-content: center;
-            color: #a5b1a9;
-            font-weight: bold;
-            text-align: center;
-            padding: 15px;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
-
-        /* Стильный белый кант и зеленая тень при наведении */
-        .club-img:hover, .trainer-card:hover {
-            transform: translateY(-4px);
-            border-color: #ffffff;
             color: #ffffff;
-            background: #141e17;
-            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.25);
+            font-weight: 700;
+            text-align: center;
+            padding: 25px 15px;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            font-size: 16px; /* Чуть крупнее имя */
+            letter-spacing: 2px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            background: linear-gradient(to top, #1a222d 25%, rgba(36, 47, 62, 0.6));
+            border: 1px solid rgba(0, 162, 255, 0.2);
         }
 
-        /* Футер */
+        .club-img:hover {
+            filter: brightness(1.15);
+            transform: scale(1.02);
+            z-index: 5;
+        }
+
+        .trainer-card:hover {
+            background: linear-gradient(to top, #00a2ff 15%, #1a222d); 
+            color: #ffffff;
+            transform: scale(1.02);
+            z-index: 5;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Секция тренеров */
+        .trainers-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .trainer-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            margin-bottom: 0;
+            filter: grayscale(20%);
+            transition: 0.3s;
+        }
+
+        .trainer-card:hover .trainer-photo {
+            filter: grayscale(0%);
+        }
+
+        /* ФУТЕР */
         .footer-info {
-            background: #0f1611;
-            border: 1px solid #1b261e;
-            border-radius: 4px;
-            padding: 30px;
-            margin-top: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            background: #242f3e; 
+            border-top: 3px solid #00a2ff;
+            padding: 45px;
+            margin-top: 60px;
+            margin-bottom: 40px;
+            box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
         }
 
         .contact-row {
-            margin-bottom: 20px;
-            font-size: 15px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(46, 204, 113, 0.1);
+            margin-bottom: 25px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #cbd5e0; 
         }
 
         .contact-row strong {
-            color: #2ecc71; /* Зеленый текст для акцентов */
-            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #00a2ff; 
         }
 
         .social-buttons {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
-            margin-top: 15px;
+            justify-content: center;
+            margin-top: 25px;
         }
 
-        /* Кнопки копирования */
         .copy-btn {
-            background: #141e17;
-            border: 1px solid #2ecc71;
+            background: transparent;
+            border: 1px solid rgba(0, 162, 255, 0.5);
             color: #ffffff;
-            padding: 10px 24px;
-            border-radius: 4px;
+            padding: 12px 30px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 1px;
+            font-size: 11px;
+            letter-spacing: 2px;
             transition: all 0.3s ease;
+            min-width: 160px;
         }
 
         .copy-btn:hover {
-            background: #2ecc71;
-            color: #070a08; /* При наведении текст становится темным */
-            box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+            background: #ffffff;
+            color: #1a222d;
+            border-color: #ffffff;
+            transform: translateY(-2px);
         }
 
-        /* Всплывающее уведомление */
+        /* Уведомление о копировании */
         .toast {
             display: none;
             position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #2ecc71;
-            color: #070a08;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-weight: bold;
+            bottom: 30px;
+            right: 30px;
+            background: #00a2ff;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 12px;
-            box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);
+            font-size: 11px;
+            letter-spacing: 1px;
             z-index: 10000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .main-banner h1 {
+                font-size: 40px;
+                letter-spacing: 5px;
+            }
         }
     </style>
 </head>
@@ -195,72 +334,96 @@
     <div class="container">
         
         <header>
-            <div class="site-name">unior</div>
+            <div class="site-name">unior fC</div>
+            <div class="top-nav">
+                <button class="nav-btn">О клубе</button>
+                <a href="tel:+79991234567" class="info-btn-top">Узнать информацию по номеру</a>
+            </div>
         </header>
 
-        <!-- Размытый баннер в стиле Краснодара с красным «ЮНИОР» -->
+        <!-- Главный баннер с кино-размытием -->
         <div class="main-banner">
             <h1>юниор</h1>
         </div>
 
         <section>
             <h2 class="section-title">Фотографии клуба</h2>
+            <!-- Добавлено больше фотографий -->
             <div class="photo-grid">
-                <img src="hoto.png" alt="Фото клуба 1" class="club-img">
-                <img src="hoto2.png" alt="Фото клуба 2" class="club-img">
-                <img src="hoto3.png" alt="Фото клуба 3" class="club-img">
-                <img src="hoto4.png" alt="Фото клуба 4" class="club-img">
-                <img src="hoto5.png" alt="Фото клуба 5" class="club-img">
-                <img src="hoto6.png" alt="Фото клуба 6" class="club-img">
+                <img src="https://placehold.co/600x400/1a222d/FFF?text=Match+Day" alt="Фото клуба 1" class="club-img">
+                <img src="https://placehold.co/600x400/1a222d/FFF?text=Training" alt="Фото клуба 2" class="club-img">
+                <img src="https://placehold.co/600x400/1a222d/FFF?text=Victory" alt="Фото клуба 3" class="club-img">
+                <img src="https://placehold.co/600x400/1a222d/FFF?text=Team" alt="Фото клуба 4" class="club-img">
+                <img src="https://placehold.co/600x400/1a222d/FFF?text=Away+Game" alt="Фото клуба 5" class="club-img">
+                <img src="https://placehold.co/600x400/1a222d/FFF?text=Stadium" alt="Фото клуба 6" class="club-img">
+                <img src="https://placehold.co/600x400/1a222d/FFF?text=Fans" alt="Фото клуба 7" class="club-img">
+                <img src="https://placehold.co/600x400/1a222d/FFF?text=Trophy" alt="Фото клуба 8" class="club-img">
             </div>
         </section>
 
+        <!-- СЕКЦИЯ ТРЕНЕРОВ -->
         <section>
-            <h2 class="section-title">Наши тренеры</h2>
-            <div class="photo-grid">
-                <div class="trainer-card">Фотография тренера 1</div>
-                <div class="trainer-card">Фотография тренера 2</div>
+            <h2 class="section-title">Тренерский штаб</h2>
+            <div class="trainers-section">
+                
+                <!-- Тренер 1: Руслан Атаев -->
+                <div class="trainer-card">
+                    <img src="https://placehold.co/400x500/242f3e/FFF?text=Ruslan+Ataev" alt="Руслан Атаев" class="trainer-photo" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1;">
+                    <div style="background: rgba(0,0,0,0.7); width: 100%; padding: 15px;">
+                        Руслан Атаев
+                    </div>
+                </div>
+
+                <!-- Тренер 2: Дмитрий Меньшиков -->
+                <div class="trainer-card">
+                    <img src="https://placehold.co/400x500/242f3e/FFF?text=Dmitry+Menshikov" alt="Дмитрий Меньшиков" class="trainer-photo" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1;">
+                    <div style="background: rgba(0,0,0,0.7); width: 100%; padding: 15px;">
+                        Дмитрий Меньшиков
+                    </div>
+                </div>
+
             </div>
         </section>
 
+        <!-- ФУТЕР С СОЦСЕТЯМИ -->
         <div class="footer-info">
             <div class="contact-row">
-                <strong>Заказать абонемент по номеру:</strong> +7 (999) 123-45-67
+                <strong>Адрес клуба</strong>
+                г. Москва, ул. Спортивная, д. 10
             </div>
-
+            
             <div class="contact-row">
-                <strong>Наши соцсети (нажмите для копирования):</strong>
+                <strong>Наши социальные сети</strong>
+                <p style="font-size: 11px; margin-bottom: 15px; opacity: 0.7;">Нажмите на кнопку, чтобы скопировать ссылку</p>
+                
                 <div class="social-buttons">
-                    <button class="copy-btn" data-copy="https://vk.com">ВКонтакте</button>
-                    <button class="copy-btn" data-copy="@unior_telegram">Telegram</button>
+                    <button class="copy-btn" onclick="copyToClipboard('https://vk.com/fc_unior')">VKontakte</button>
+                    <button class="copy-btn" onclick="copyToClipboard('https://t.me/fc_unior_channel')">Telegram</button>
+                    <button class="copy-btn" onclick="copyToClipboard('https://instagram.com/fc_unior_official')">Instagram</button>
                 </div>
-            </div>
-
-            <div class="contact-row" style="border: none; margin: 0; padding: 0;">
-                <strong>Адрес клуба:</strong> г. Москва, ул. Спортивная, д. 11, комплекс «Юниор»
             </div>
         </div>
 
     </div>
 
-    <div class="toast" id="toast">Ссылка скопирована!</div>
+    <!-- Уведомление -->
+    <div id="toast" class="toast">Ссылка скопирована!</div>
 
     <script>
-        const copyButtons = document.querySelectorAll('.copy-btn');
-        const toast = document.getElementById('toast');
-
-        copyButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const textToCopy = button.getAttribute('data-copy');
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    toast.style.display = 'block';
-                    setTimeout(() => {
-                        toast.style.display = 'none';
-                    }, 2000);
-                });
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                const toast = document.getElementById('toast');
+                toast.style.display = 'block';
+                
+                // Скрыть через 2 секунды
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 2000);
+            }, function(err) {
+                console.error('Ошибка копирования: ', err);
             });
-        });
+        }
     </script>
-
 </body>
 </html>
+
