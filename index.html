@@ -190,7 +190,7 @@
             transition: transform 0.6s ease;
         }
 
-        /* Free trial badge */
+        /* Free trial badge — БЕЗ ТЕНИ */
         .free-badge {
             background: linear-gradient(90deg, #e11d48 0%, #f43f5e 100%);
             color: white;
@@ -200,14 +200,7 @@
             font-size: 12px;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.35);
             white-space: nowrap;
-            animation: pulseBadge 2.5s ease-in-out infinite;
-        }
-
-        @keyframes pulseBadge {
-            0%, 100% { box-shadow: 0 4px 12px rgba(225, 29, 72, 0.35); }
-            50% { box-shadow: 0 4px 20px rgba(225, 29, 72, 0.6); }
         }
 
         /* ===== МОБИЛЬНОЕ МЕНЮ ===== */
@@ -354,8 +347,6 @@
 
             .desktop-right {
                 display: flex !important;
-                border-bottom: 2px solid #e11d48;
-                padding-bottom: 8px;
             }
 
             .burger-btn {
