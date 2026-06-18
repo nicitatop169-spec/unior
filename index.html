@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -348,12 +348,18 @@
 
         /* ===== АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ ===== */
         @media (max-width: 768px) {
-            .burger-btn {
-                display: flex;
+            .desktop-right .relative.group {
+                display: none !important;
             }
 
             .desktop-right {
-                display: none !important;
+                display: flex !important;
+                border-bottom: 2px solid #e11d48;
+                padding-bottom: 8px;
+            }
+
+            .burger-btn {
+                display: flex;
             }
 
             .hero-title {
@@ -430,6 +436,9 @@
         <a href="#footer" class="mobile-link">
             <i class="fas fa-share-alt"></i> НАШИ СОЦ СЕТИ
         </a>
+        <a href="tel:+79991234567" class="mobile-link">
+            <i class="fas fa-phone-alt"></i> УЗНАТЬ ИНФОРМАЦИЮ
+        </a>
 
         <div class="mobile-menu-info">
             <div class="free-badge inline-flex items-center gap-2 text-[11px]">
@@ -453,7 +462,7 @@
                     <span class="font-bold text-2xl tracking-tighter text-blue-900">ЮНИОР<span class="text-red-600">.</span></span>
                 </div>
 
-                <!-- Правая часть: десктопное меню -->
+                <!-- Right side: Catalog + Stacked Info -->
                 <div class="desktop-right flex items-center gap-4 md:gap-6">
                     
                     <!-- Catalog Menu -->
